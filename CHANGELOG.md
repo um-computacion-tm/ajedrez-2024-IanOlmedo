@@ -5,3 +5,9 @@
 - La interfaz con el usuario (cli)
 - El Tablero (board)
 - Ajedrez que es la comunicacion directa con el cliente (chess)
+
+## [1.1.2] - 14 de agosto de 2024
+# Agregado
+- Primeros Tests de Board
+- Archivo test para Chess, verifica la composicion del tablero
+
