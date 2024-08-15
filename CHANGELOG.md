@@ -11,3 +11,10 @@
 - Primeros Tests de Board
 - Archivo test para Chess, verifica la composicion del tablero
 
+## [1.1.3] - 14 de agosto de 2024
+# Agregado
+- Archivos __init__.py para cada carpeta de test y pieces
+- En board ubique en board todas las piezas en su posicion inicial
+- Corregi los tests de board y verfico que casillas deben estar vacias en un comienzo
+
+
