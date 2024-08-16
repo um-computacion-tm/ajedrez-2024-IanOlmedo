@@ -1,5 +1,5 @@
 from pieces import Piece
-
+from board import Board
 class King(Piece):
     def __init__(self, color):
         super().__init__(color)
