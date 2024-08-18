@@ -11,13 +11,13 @@
 - Primeros Tests de Board
 - Archivo test para Chess, verifica la composicion del tablero
 
-## [1.1.3] - 14 de agosto de 2024
+## [1.1.3] - 15 de agosto de 2024
 # Agregado
 - Archivos __init__.py para cada carpeta de test y pieces
 - En board ubique en board todas las piezas en su posicion inicial
 - Corregi los tests de board y verfico que casillas deben estar vacias en un comienzo
 
-## [1.1.4] - 14 de agosto de 2024
+## [1.1.4] - 16 de agosto de 2024
 # Agregado
 - Defini para todas las piezas los metodos posibles_movimientos--> dependiente de funciones aun no definidas
 - Metodo mover_a (aun no definida)
@@ -25,6 +25,12 @@
 - Todos los metodos fueron estabecidos 
 - proximo commit intentare crear los movimiento para alguna pieza
 
-
+## [1.1.5] - 17 de agosto de 2024
+# Agregado
+- Defini el metodo get_moves_rook que define todos los movimientos posibles para la torre
+siempre y cuando este dentro del tablero.
+- Hice un test verificando este mismo metodo (get_moves_rook), que por el momento solo verfica que devuelva toda la lista de movimientos disponibles para la torre, sin tener en cuenta si esta afuera
+o si tiene una pieza aliada por delante
+- Y dentro de board cree un metodo (set_piece) que mueve la pieza de lugar
 
 

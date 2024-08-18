@@ -5,7 +5,6 @@ class King(Piece):
         super().__init__(color)
 
     def get_moves_king(self, board, from_row, from_col):
-        #Como se mueve la Torre
         pass
 
 
