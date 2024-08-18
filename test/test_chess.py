@@ -1,5 +1,5 @@
 import unittest
-from chess import Chess
+from chess.ajed import Chess
 
 class ChessTest(unittest.TestCase):
     def test_init(self):
@@ -14,3 +14,5 @@ class ChessTest(unittest.TestCase):
                                                         [None, None, None, None, None, None, None, None]])
         self.assertEqual(chess.__turn__, "white")
 
+if __name__ == '__main__':
+    unittest.main()

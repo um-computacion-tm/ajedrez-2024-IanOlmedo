@@ -12,3 +12,7 @@ class RookTest(unittest.TestCase):
             (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7)
         ]   #todos los movimientos que deberia poder hacer
         self.assertEqual(board.get_piece(0, 0).get_moves(board, 0, 0), movimientos)
+
+
+if __name__ == '__main__':
+    unittest.main()

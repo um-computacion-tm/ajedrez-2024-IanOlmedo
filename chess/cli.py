@@ -1,4 +1,4 @@
-from chess import Chess
+from chess.ajed import Chess
 
 def main():
     chess = Chess()

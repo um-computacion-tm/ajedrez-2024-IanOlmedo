@@ -34,9 +34,14 @@ class Board:
             self.__positions__[6][i] = Pawn("WHITE")
 
 
+    def get_size(self):
+        return len(self.__positions__)
+
     def get_piece(self, row, col):
         return self.__positions__[row][col]
 
     def set_piece(self, row, col, piece):
         self.__positions__[row][col] = piece
+
+    
 

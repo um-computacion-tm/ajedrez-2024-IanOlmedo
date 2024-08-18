@@ -1,3 +1,4 @@
+from board import Board
 
 class Piece():
     def __init__(self, color):

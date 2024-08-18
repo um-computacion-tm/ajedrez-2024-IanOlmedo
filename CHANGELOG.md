@@ -33,4 +33,8 @@ siempre y cuando este dentro del tablero.
 o si tiene una pieza aliada por delante
 - Y dentro de board cree un metodo (set_piece) que mueve la pieza de lugar
 
+## [1.1.6] - 18 de agosto de 2024
+# Agregado
+- Este commit se baso en arreglar muchos errores o intentar de entenderlos, termine de configurar coverage pero aun tengo problemas con las importaciones para cada archivo.
+- Agregue una funcion que devuelve el tamaño del tablero (lo de menos en este commit)
 

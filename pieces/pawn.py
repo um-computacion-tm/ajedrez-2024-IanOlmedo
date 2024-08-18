@@ -1,5 +1,6 @@
-from pieces import Piece
+from piezas import Piece
 from board import Board
+
 class Pawn(Piece):
     def __init__(self, color):
         super().__init__(color)
