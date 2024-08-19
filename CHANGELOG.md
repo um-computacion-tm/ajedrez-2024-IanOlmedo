@@ -38,3 +38,9 @@ o si tiene una pieza aliada por delante
 - Este commit se baso en arreglar muchos errores o intentar de entenderlos, termine de configurar coverage pero aun tengo problemas con las importaciones para cada archivo.
 - Agregue una funcion que devuelve el tamaño del tablero (lo de menos en este commit)
 
+## [1.1.7] - 19 de agosto de 2024
+# Agregado
+- Aun sigo teniendo errores de importacion que no logro solucionar ni entender
+- Mas alla de eso complete los test para board sin poder verificar si estan bien hechos. Pero
+su funcion es verificar que el tablero tenga todas las piezas bien posicionadas y que la casillas vacia esten en None
+

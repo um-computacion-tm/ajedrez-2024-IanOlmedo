@@ -1,21 +1,57 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 import unittest
-from board import Board
-from pieces.rook import Rook  
-class BoardTest(unittest.TestCase):
+from ..chess.board import Board
+from ..chess.board import Board
+from ..chess.rook import Rook
+from ..chess.horse import Horse
+from ..chess.bishop import Bishop
+from ..chess.queen import Queen
+from ..chess.king import King
+from ..chess.pawn import Pawn
+
+class TestBoard(unittest.TestCase):
+    #inicializa el tablero
     def setUp(self):
         self.board = Board()
 
-    def test_init(self):
-        #corroborar que get_size sea 8x8
-        self.assertEqual(self.board.get_size(), (8,8))
-
-    def test_get_piece(self):
-        self.assertIsInstance(self.board.get_piece(0, 0), Rook) # se fija si las torres estan bien ubicadas
-        self.assertIsInstance(self.board.get_piece(7, 7), Rook)
+    def test_initial_setup(self):
+        # se fija si las piezas estan en sus posiciones iniciales
+        self.assertIsInstance(self.board.get_piece(0, 0), Rook)
         self.assertIsInstance(self.board.get_piece(0, 7), Rook)
         self.assertIsInstance(self.board.get_piece(7, 0), Rook)
-        self.assertIsNone(self.board.get_piece(4, 4))  #en el 4,4 no deberia haber nada en un comienzo
+        self.assertIsInstance(self.board.get_piece(7, 7), Rook)
 
-if __name__ == "__main__":
+
+        self.assertIsInstance(self.board.get_piece(0, 1), Horse)
+        self.assertIsInstance(self.board.get_piece(0, 6), Horse)
+        self.assertIsInstance(self.board.get_piece(7, 1), Horse)
+        self.assertIsInstance(self.board.get_piece(7, 6), Horse)
+
+
+        self.assertIsInstance(self.board.get_piece(0, 2), Bishop)
+        self.assertIsInstance(self.board.get_piece(0, 5), Bishop)
+        self.assertIsInstance(self.board.get_piece(7, 2), Bishop)
+        self.assertIsInstance(self.board.get_piece(7, 5), Bishop)
+
+
+        self.assertIsInstance(self.board.get_piece(0, 3), Queen)
+        self.assertIsInstance(self.board.get_piece(7, 3), Queen)
+
+        self.assertIsInstance(self.board.get_piece(0, 4), King)
+        self.assertIsInstance(self.board.get_piece(7, 4), King)
+
+        for i in range(8):
+            self.assertIsInstance(self.board.get_piece(1, i), Pawn)
+            self.assertIsInstance(self.board.get_piece(6, i), Pawn)
+
+    def test_empty_squares(self):
+        # se fija si las casillas none es donde no hay piezas
+        for i in range(2, 6):
+            for j in range(8):
+                self.assertIsNone(self.board.get_piece(i, j))
+
+if __name__ == '__main__':
     unittest.main()

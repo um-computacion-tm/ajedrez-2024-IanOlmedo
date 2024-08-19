@@ -1,5 +1,5 @@
-from pieces.piezas import Piece
-from chess.board import Board
+from piezas import Piece
+from board import Board
 
 
 class Bishop(Piece):
