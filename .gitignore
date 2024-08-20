@@ -1,3 +1,4 @@
 /env
 env/
-__pycahe__/ 
+__pycache__/
+.coverage
