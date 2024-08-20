@@ -1,5 +1,5 @@
-from piezas import Piece
-from board import Board
+from ajedrez.piezas import Piece
+
 
 class Horse(Piece):
     def __init__(self, color):

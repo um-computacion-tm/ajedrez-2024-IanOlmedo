@@ -1,8 +1,8 @@
-from ajed import Chess
+from ajedrez.chess import Chess
 
 def main():
     chess = Chess()
-    while True:
+    while chess.is_playing():
         play(chess)
 
 def play(chess):

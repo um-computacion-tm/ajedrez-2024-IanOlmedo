@@ -1,9 +1,9 @@
-from rook import Rook   
-from horse import Horse
-from bishop import Bishop
-from queen import Queen
-from king import King
-from pawn import Pawn
+from ajedrez.rook import Rook   
+from ajedrez.horse import Horse
+from ajedrez.bishop import Bishop
+from ajedrez.queen import Queen
+from ajedrez.king import King
+from ajedrez.pawn import Pawn
 
 class Board:
     def __init__(self):
@@ -33,6 +33,8 @@ class Board:
             self.__positions__[1][i] = Pawn("BLACK")
             self.__positions__[6][i] = Pawn("WHITE")
 
+    def __str__(self):
+        pass
 
     def get_size(self):
         return len(self.__positions__)

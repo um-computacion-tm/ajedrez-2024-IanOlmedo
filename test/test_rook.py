@@ -1,5 +1,5 @@
-from chess.rook import Rook
-from chess.board import Board
+from ajedrez.rook import Rook
+from ajedrez.board import Board
 import unittest
 
 class RookTest(unittest.TestCase):

@@ -1,5 +1,5 @@
-from piezas import Piece
-from board import Board
+from ajedrez.piezas import Piece
+
 class Queen(Piece):
     def __init__(self, color):
         super().__init__(color)

@@ -1,5 +1,4 @@
-from piezas import Piece
-from board import Board
+from ajedrez.piezas import Piece
 
 
 class Bishop(Piece):

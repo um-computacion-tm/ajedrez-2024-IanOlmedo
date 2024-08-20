@@ -1,5 +1,5 @@
 import unittest
-from chess.ajed import Chess
+from ajedrez.chess import Chess
 
 class ChessTest(unittest.TestCase):
     def test_init(self):

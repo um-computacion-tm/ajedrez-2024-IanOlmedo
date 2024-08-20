@@ -1,10 +1,11 @@
-from piezas import Piece
-from board import Board
+from ajedrez.piezas import Piece
+
 
 class Rook(Piece):
 
     def __init__(self, color):
         super().__init__(color)
+
 
     def get_moves_rook(self, board, row, col):
         moves = []

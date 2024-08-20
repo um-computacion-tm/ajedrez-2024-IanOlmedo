@@ -3,14 +3,13 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 import unittest
-from ..chess.board import Board
-from ..chess.board import Board
-from ..chess.rook import Rook
-from ..chess.horse import Horse
-from ..chess.bishop import Bishop
-from ..chess.queen import Queen
-from ..chess.king import King
-from ..chess.pawn import Pawn
+from ajedrez.board import Board
+from ajedrez.rook import Rook
+from ajedrez.horse import Horse
+from ajedrez.bishop import Bishop
+from ajedrez.queen import Queen
+from ajedrez.king import King
+from ajedrez.pawn import Pawn
 
 class TestBoard(unittest.TestCase):
     #inicializa el tablero
