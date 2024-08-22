@@ -44,3 +44,12 @@ o si tiene una pieza aliada por delante
 - Mas alla de eso complete los test para board sin poder verificar si estan bien hechos. Pero
 su funcion es verificar que el tablero tenga todas las piezas bien posicionadas y que la casillas vacia esten en None
 
+## [1.1.8] - 20 de agosto de 2024
+# Agregado
+- Solucine los problemas de importacion con el profe Daniel
+
+## [1.1.9] - 21 de agosto de 2024
+# Agregado
+- Agregue todo lo de la clase del 20/08/24 con los __str__, cli, chess, menos los except
+- Complete el test de str_board con todas las fichas faltantes
+- Commit de mañana sera intentar de solucionar los problemas

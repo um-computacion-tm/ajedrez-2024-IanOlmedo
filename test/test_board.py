@@ -46,6 +46,22 @@ class TestBoard(unittest.TestCase):
             self.assertIsInstance(self.board.get_piece(1, i), Pawn)
             self.assertIsInstance(self.board.get_piece(6, i), Pawn)
 
+
+
+    def test_str_board(self):
+        board = Board()
+        self.assertEqual(
+            str(board),
+                ("♜♞♝♛♚♝♞♜\n"
+                "♟♟♟♟♟♟♟♟♟\n"
+                "        \n"
+                "        \n"
+                "        \n"
+                "        \n"
+                "♙♙♙♙♙♙♙♙♙\n"
+                "♖♘♗♕♔♗♘♖\n")
+        )
+
     def test_empty_squares(self):
         # se fija si las casillas none es donde no hay piezas
         for i in range(2, 6):

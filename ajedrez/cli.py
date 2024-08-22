@@ -1,24 +1,82 @@
-from ajedrez.chess import Chess
+import unittest
+from unittest.mock import patch
+from chess import Chess
+from cli import play
 
-def main():
-    chess = Chess()
-    while chess.is_playing():
+
+class TestCli(unittest.TestCase):
+    @patch(  # este patch controla lo que hace el input
+        'builtins.input',
+        side_effect=['1', '1', '2', '2'], # estos son los valores que simula lo que ingresaria el usuario
+    )
+    @patch('builtins.print') # este patch controla lo que hace el print
+    @patch.object(Chess, 'move')
+    def test_happy_path(
+        self,
+        mock_chess_move,
+        mock_print,
+        mock_input,
+    ): #
+        chess = Chess()
         play(chess)
+        self.assertEqual(mock_input.call_count, 4)
+        self.assertEqual(mock_print.call_count, 2)
+        self.assertEqual(mock_chess_move.call_count, 1)
 
-def play(chess):
-    try:
-        print(chess.show_board())
-        from_row = int(input("De la fila: "))
-        from_col = int(input("De la columna: "))
-        to_row = int(input("A la fila: "))
-        to_col = int(input("A la columna: "))
+    @patch(  # este patch controla lo que hace el input
+        'builtins.input',
+        side_effect=['hola', '1', '2', '2'], # estos son los valores que simula lo que ingresaria el usuario
+    )
+    @patch('builtins.print') # este patch controla lo que hace el print
+    @patch.object(Chess, 'move')
+    def test_not_happy_path(
+        self,
+        mock_chess_move,
+        mock_print,
+        mock_input,
+    ): #
+        chess = Chess()
+        play(chess)
+        self.assertEqual(mock_input.call_count, 1)
+        self.assertEqual(mock_print.call_count, 3)
+        self.assertEqual(mock_chess_move.call_count, 0)
 
-        chess.move(from_row, from_col, to_row, to_col)
+    @patch(  # este patch controla lo que hace el input
+        'builtins.input',
+        side_effect=['1', '1', '2', 'hola'], # estos son los valores que simula lo que ingresaria el usuario
+    )
+    @patch('builtins.print') # este patch controla lo que hace el print
+    @patch.object(Chess, 'move')
+    def test_more_not_happy_path(
+        self,
+        mock_chess_move,
+        mock_print,
+        mock_input,
+    ): #
+        chess = Chess()
+        play(chess)
+        self.assertEqual(mock_input.call_count, 4)
+        self.assertEqual(mock_print.call_count, 3)
+        self.assertEqual(mock_chess_move.call_count, 0)
 
-    except Exception as e:
-        print("Error")
-
-
-
-if __name__ == "__main__":
-    main()
+    # @patch(  # este patch controla lo que hace el input
+    #     'builtins.input',
+    #     side_effect=['1', '1', '2', '1'], # estos son los valores que simula lo que ingresaria el usuario
+    # )
+    # @patch('builtins.print') # este patch controla lo que hace el print
+    # @patch.object(
+    #     Chess,
+    #     'move',
+    #     side_effect=InvalidMove(),
+    # )
+    # def test_invalid_move(
+    #     self,
+    #     mock_chess_move,
+    #     mock_print,
+    #     mock_input,
+    # ): #
+    #     chess = Chess()
+    #     play(chess)
+    #     self.assertEqual(mock_input.call_count, 4)
+    #     self.assertEqual(mock_print.call_count, 2)
+    #     self.assertEqual(mock_chess_move.call_count, 1)
