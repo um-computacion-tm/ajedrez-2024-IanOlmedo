@@ -1,4 +1,4 @@
-from board import Board
+from ajedrez.board import Board
 
 
 class Chess:
@@ -6,19 +6,19 @@ class Chess:
         self.__board__ = Board()
         self.__turn__ = "WHITE"
 
-    def is_playing(self):
+    def is_playing(self): 
         return True
 
-    def move(
-        self,
-        from_row,
-        from_col,
-        to_row,
-        to_col,
-    ):
-        # validate coords
+    def move(self, 
+            from_row, 
+            from_col, 
+            to_row, 
+            to_col):
         piece = self.__board__.get_piece(from_row, from_col)
-        self.change_turn()
+        if piece:
+            piece.mover_a(self.__board__, from_row, from_col, to_row, to_col)
+            self.change_turn()
+
     @property
     def turn(self):
         return self.__turn__
@@ -31,3 +31,5 @@ class Chess:
             self.__turn__ = "BLACK"
         else:
             self.__turn__ = "WHITE"
+
+

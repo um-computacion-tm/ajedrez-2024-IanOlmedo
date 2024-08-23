@@ -50,8 +50,10 @@ class Board:
     def get_piece(self, row, col):
         return self.__positions__[row][col]
 
-    def set_piece(self, row, col, piece):
+    def set_piece(self, row, col, piece): 
         self.__positions__[row][col] = piece
 
+    def remove_piece(self, row, col):
+        self.__positions__[row][col] = None
     
 
