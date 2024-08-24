@@ -1,3 +1,10 @@
+## [1.2.1] - 23 de agosto de 2024
+# Agregado
+- Todos los test de rook para verificar posibles movimientos ya estan funcionando bien, agregue uno mas 
+- Metodo de get_moves_queen realizado tengo un problema con uno de los test en el que al devolverme 
+las posiciones posibles de la reina en 4,4 el metodo me devuelve algunos valores repetidos 
+asi que ese test estara en desarrollo.
+
 ## [1.2.0] - 22 de agosto de 2024
 # Agregado
 - Pude Arreglar los test de board
@@ -5,6 +12,7 @@
 - Añadi todos los test necesarios para chess: init, playing, show_board, change_turn y move que fue el que mas me costo
 - Cree un metodo remove_piece para que cada vez que se mueva una pieza se coloque un "None" en su lugar
 - Proximo commit queda arreglar unos errores en test_rook y empezar el desarrollo de las demas piezas!
+- Agregue el test correcto para ver los movimientos realizables por rook
 
 ## [1.1.9] - 21 de agosto de 2024
 # Agregado

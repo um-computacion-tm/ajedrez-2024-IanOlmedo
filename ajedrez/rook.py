@@ -21,7 +21,7 @@ class Rook(Piece):
                 if 0 <= r < 8 and 0 <= c < 8:  # Se fija si esta adentro de el tablero
                     piece = board.get_piece(r, c)
                     if piece is None:
-                        moves.append((r, c))  # si no hay una pieza el movimiento es valido
+                        moves.append((r, c))  #no hay nada que mover 
                     elif piece.get_color() != self.get_color():
                         moves.append((r, c))  # Si es una pieza del color contrario puede comer
                         break  
