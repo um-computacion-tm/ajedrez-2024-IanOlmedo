@@ -1,9 +1,8 @@
-## [1.2.1] - 23 de agosto de 2024
+## [1.2.2] - 24 de agosto de 2024
 # Agregado
-- Todos los test de rook para verificar posibles movimientos ya estan funcionando bien, agregue uno mas 
-- Metodo de get_moves_queen realizado tengo un problema con uno de los test en el que al devolverme 
-las posiciones posibles de la reina en 4,4 el metodo me devuelve algunos valores repetidos 
-asi que ese test estara en desarrollo.
+- Test para la reina, movimientos coverage al 100%
+- Peon, sus movimientos, comer en diagonal y extras
+- Testeo al 97%
 
 ## [1.2.0] - 22 de agosto de 2024
 # Agregado
