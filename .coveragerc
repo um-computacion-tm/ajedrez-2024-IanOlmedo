@@ -1,7 +1,6 @@
 [run]
 source =
-    chess
-    pieces
+    ajedrez
     test
 omit =
     venv/*

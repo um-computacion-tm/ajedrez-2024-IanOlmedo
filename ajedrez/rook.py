@@ -32,12 +32,6 @@ class Rook(Piece):
 
         return moves
 
-    def posibles_movimientos(self, board, from_row, from_col):
-        rook = board.get_piece(from_row, from_col)
-        if rook is None:  
-            return []
-        else:
-            return rook.get_moves_rook(board, from_row, from_col)
 
     def mover_a(self, board, from_row, from_col, to_row, to_col):
         board.set_piece(to_row, to_col, self)

@@ -22,17 +22,24 @@ class TestQueen(unittest.TestCase):
         self.assertEqual(sorted(result), sorted(expected_moves))
 ##Exelenteeeee
     
-"""    def test_queen_moves_middle_board(self):
+    def test_queen_moves_middle_board(self):
         # Colocar la torre en el medio del tablero
         self.__board__.set_piece(4, 4, Queen("WHITE"))
         queen = self.__board__.get_piece(4, 4)
         expected_moves = [(4,0),(4,1),(4,2),(4,3),(4,5),(4,6),(4,7), (1,4), 
-                        (2,4), (3,4), (5,4), (4,5), (4,6), (4,7),
+                        (2,4), (3,4), (5,4),
                         (3,3), (2,2), (1,1), (3,5),(2,6),(1,7),(5,5),(5,3)]   # movimientos pra todos lados 
         
 
         actual_moves = queen.get_moves_queen(self.__board__, 4, 4)
-        self.assertEqual(sorted(actual_moves), sorted(expected_moves))"""
+        self.assertEqual(sorted(actual_moves), sorted(expected_moves))
 
-if __name__== '__main__':
+    def test_mover_a(self):
+        # mueve a la reina del 4,4 al 5,5
+        self.__queen__.mover_a(self.__board__, 4, 4, 5, 5)
+        
+        self.assertEqual(self.__board__.get_piece(5, 5), self.__queen__) # se fija si la reina esta en la nueva casilla
+        self.assertIsNone(self.__board__.get_piece(4, 4))  #ve si la casilla inicial esta vacia
+
+if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,7 @@
+import unittest
 from ajedrez.rook import Rook
 from ajedrez.board import Board
-import unittest
+
 
 class RookTest(unittest.TestCase):
 

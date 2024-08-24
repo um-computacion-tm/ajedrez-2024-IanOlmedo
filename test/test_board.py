@@ -1,6 +1,4 @@
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 
 import unittest
 from ajedrez.board import Board
@@ -88,6 +86,10 @@ class TestBoard(unittest.TestCase):
             "♖♘♗♕♔♗♘♖\n"
         )
         self.assertEqual(str(self.board), expected_str)
+
+    def test_size(self):
+        cantidadcasillas = 8
+        self.assertEqual(self.board.get_size(), cantidadcasillas)
 
 
 if __name__ == '__main__':

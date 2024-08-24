@@ -28,14 +28,6 @@ class Queen(Piece):
                     break  # Termina si no está adentro del tablero
         return move
 
-
-    def posibles_movimientos(self, from_row, from_col):
-        queen = self.board.get_piece(from_row, from_col)
-        if queen is None:  
-            return []
-        else:
-            return queen.get_moves_queen(self.board, from_row, from_col)
-
-
-    def mover_a(self, from_row, from_col, to_row, to_col):
-        pass
+    def mover_a(self, board, from_row, from_col, to_row, to_col):
+        board.set_piece(to_row, to_col, self)
+        board.remove_piece(from_row, from_col)
