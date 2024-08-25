@@ -1,46 +1,67 @@
-## [1.1.1] - 13 de agosto de 2024
+## [1.2.2] - 24 de agosto de 2024
 # Agregado
-- Carpetas tets con el test para board, proximamente los que faltan
-- Carpeta para pieces con todos los archivos para casa pieza
-- La interfaz con el usuario (cli)
-- El Tablero (board)
-- Ajedrez que es la comunicacion directa con el cliente (chess)
+- Test para la reina, movimientos coverage al 100%
+- Peon, sus movimientos, comer en diagonal y extras
+- Testeo al 97%
 
-## [1.1.2] - 14 de agosto de 2024
+## [1.2.0] - 22 de agosto de 2024
 # Agregado
-- Primeros Tests de Board
-- Archivo test para Chess, verifica la composicion del tablero
+- Pude Arreglar los test de board
+- Verifican que las posiciones iniciales esten bien asignadas y que el tablero se muestre bien
+- Añadi todos los test necesarios para chess: init, playing, show_board, change_turn y move que fue el que mas me costo
+- Cree un metodo remove_piece para que cada vez que se mueva una pieza se coloque un "None" en su lugar
+- Proximo commit queda arreglar unos errores en test_rook y empezar el desarrollo de las demas piezas!
+- Agregue el test correcto para ver los movimientos realizables por rook
 
-## [1.1.3] - 15 de agosto de 2024
+## [1.1.9] - 21 de agosto de 2024
 # Agregado
-- Archivos __init__.py para cada carpeta de test y pieces
-- En board ubique en board todas las piezas en su posicion inicial
-- Corregi los tests de board y verfico que casillas deben estar vacias en un comienzo
+- Agregué todo lo de la clase del 20/08/24 con los `__str__`, `cli`, `chess`, menos los `except`.
+- Completé el test de `str_board` con todas las fichas faltantes.
+- El commit de mañana será intentar solucionar los problemas.
 
-## [1.1.4] - 16 de agosto de 2024
+## [1.1.8] - 20 de agosto de 2024
 # Agregado
-- Defini para todas las piezas los metodos posibles_movimientos--> dependiente de funciones aun no definidas
-- Metodo mover_a (aun no definida)
-- get_moves(nombreP) (No definida aun)
-- Todos los metodos fueron estabecidos 
-- proximo commit intentare crear los movimiento para alguna pieza
-
-## [1.1.5] - 17 de agosto de 2024
-# Agregado
-- Defini el metodo get_moves_rook que define todos los movimientos posibles para la torre
-siempre y cuando este dentro del tablero.
-- Hice un test verificando este mismo metodo (get_moves_rook), que por el momento solo verfica que devuelva toda la lista de movimientos disponibles para la torre, sin tener en cuenta si esta afuera
-o si tiene una pieza aliada por delante
-- Y dentro de board cree un metodo (set_piece) que mueve la pieza de lugar
-
-## [1.1.6] - 18 de agosto de 2024
-# Agregado
-- Este commit se baso en arreglar muchos errores o intentar de entenderlos, termine de configurar coverage pero aun tengo problemas con las importaciones para cada archivo.
-- Agregue una funcion que devuelve el tamaño del tablero (lo de menos en este commit)
+- Solucioné los problemas de importación con el profe Daniel.
 
 ## [1.1.7] - 19 de agosto de 2024
 # Agregado
-- Aun sigo teniendo errores de importacion que no logro solucionar ni entender
-- Mas alla de eso complete los test para board sin poder verificar si estan bien hechos. Pero
-su funcion es verificar que el tablero tenga todas las piezas bien posicionadas y que la casillas vacia esten en None
+- Aún sigo teniendo errores de importación que no logro solucionar ni entender.
+- Más allá de eso, completé los test para `board` sin poder verificar si están bien hechos. Pero su función es verificar que el tablero tenga todas las piezas bien posicionadas y que las casillas vacías estén en `None`.
 
+## [1.1.6] - 18 de agosto de 2024
+# Agregado
+- Este commit se basó en arreglar muchos errores o intentar entenderlos, terminé de configurar `coverage` pero aún tengo problemas con las importaciones para cada archivo.
+- Agregué una función que devuelve el tamaño del tablero (lo de menos en este commit).
+
+## [1.1.5] - 17 de agosto de 2024
+# Agregado
+- Definí el método `get_moves_rook` que define todos los movimientos posibles para la torre, siempre y cuando esté dentro del tablero.
+- Hice un test verificando este mismo método (`get_moves_rook`), que por el momento solo verifica que devuelva toda la lista de movimientos disponibles para la torre, sin tener en cuenta si está fuera o si tiene una pieza aliada por delante.
+- Y dentro de `board` creé un método (`set_piece`) que mueve la pieza de lugar.
+
+## [1.1.4] - 16 de agosto de 2024
+# Agregado
+- Definí para todas las piezas los métodos `posibles_movimientos` → dependiente de funciones aún no definidas.
+- Método `mover_a` (aún no definida).
+- `get_moves(nombreP)` (No definida aún).
+- Todos los métodos fueron establecidos.
+- Próximo commit intentaré crear los movimientos para alguna pieza.
+
+## [1.1.3] - 15 de agosto de 2024
+# Agregado
+- Archivos `__init__.py` para cada carpeta de `test` y `pieces`.
+- En `board` ubiqué todas las piezas en su posición inicial.
+- Corregí los tests de `board` y verifiqué qué casillas deben estar vacías en un comienzo.
+
+## [1.1.2] - 14 de agosto de 2024
+# Agregado
+- Primeros tests de `Board`.
+- Archivo `test` para `Chess`, verifica la composición del tablero.
+
+## [1.1.1] - 13 de agosto de 2024
+# Agregado
+- Carpetas `test` con el test para `board`, próximamente los que faltan.
+- Carpeta para `pieces` con todos los archivos para cada pieza.
+- La interfaz con el usuario (`cli`).
+- El Tablero (`board`).
+- `Ajedrez` que es la comunicación directa con el cliente (`chess`).

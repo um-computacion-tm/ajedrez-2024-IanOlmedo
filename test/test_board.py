@@ -1,6 +1,4 @@
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 
 import unittest
 from ajedrez.board import Board
@@ -52,5 +50,51 @@ class TestBoard(unittest.TestCase):
             for j in range(8):
                 self.assertIsNone(self.board.get_piece(i, j))
 
+    def test_initial_positions(self):
+        expected_positions = [
+            ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],  # Filas iniciales para piezas negras
+            ["♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟"],  # Peones negros
+            [None, None, None, None, None, None, None, None],
+            [None, None, None, None, None, None, None, None],
+            [None, None, None, None, None, None, None, None],
+            [None, None, None, None, None, None, None, None],
+            ["♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙"],  # Peones blancos
+            ["♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"]   # Filas iniciales para piezas blancas
+        ]
+
+        actual_positions = []
+        for row in range(8):
+            actual_row = []
+            for col in range(8):
+                piece = self.board.get_piece(row, col)
+                actual_row.append(str(piece) if piece else None)
+            actual_positions.append(actual_row)
+
+
+        
+        self.assertEqual(actual_positions, expected_positions)
+
+    def test_str_representation(self):
+        expected_str = (
+            "♜♞♝♛♚♝♞♜\n"
+            "♟♟♟♟♟♟♟♟\n"
+            "        \n"
+            "        \n"
+            "        \n"
+            "        \n"
+            "♙♙♙♙♙♙♙♙\n"
+            "♖♘♗♕♔♗♘♖\n"
+        )
+        self.assertEqual(str(self.board), expected_str)
+
+    def test_size(self):
+        cantidadcasillas = 8
+        self.assertEqual(self.board.get_size(), cantidadcasillas)
+
+
 if __name__ == '__main__':
     unittest.main()
+
+
+
+

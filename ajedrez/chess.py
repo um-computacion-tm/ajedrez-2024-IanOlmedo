@@ -1,19 +1,30 @@
 from ajedrez.board import Board
 
-class Chess():
+
+class Chess:
     def __init__(self):
         self.__board__ = Board()
         self.__turn__ = "WHITE"
 
-    def move(self, from_row, from_col, to_row, to_col):
-        pass
+    def is_playing(self): 
+        return True
 
-        #validate coords
-        piece = self.board.get_piece(from_row, from_col)
-        self.change_turn()
+    def move(self, 
+            from_row, 
+            from_col, 
+            to_row, 
+            to_col):
+        piece = self.__board__.get_piece(from_row, from_col)
+        if piece:
+            piece.mover_a(self.__board__, from_row, from_col, to_row, to_col)
+            self.change_turn()
 
-    def is_playing(self):
-        pass
+    @property
+    def turn(self):
+        return self.__turn__
+
+    def show_board(self):
+        return str(self.__board__)
 
     def change_turn(self):
         if self.__turn__ == "WHITE":
@@ -21,5 +32,4 @@ class Chess():
         else:
             self.__turn__ = "WHITE"
 
-    def show_board(self):
-        pass
+

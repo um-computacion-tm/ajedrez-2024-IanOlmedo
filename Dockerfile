@@ -7,7 +7,7 @@ WORKDIR /ajedrez-2024-IanOlmedo
 
 RUN pip install -r requirements.txt
 
-CMD ["sh", "-c", "coverage run -m unittest && coverage report -m && python cli.py"]
+CMD ["sh", "-c", "coverage run -m unittest && coverage report -m && python main.py"]
 
 # docker buildx build -t /ajedrez-2024-IanOlmedo .
 # docker run -i /ajedrez-2024-IanOlmedo

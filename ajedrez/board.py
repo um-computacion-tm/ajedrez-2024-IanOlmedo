@@ -34,16 +34,26 @@ class Board:
             self.__positions__[6][i] = Pawn("WHITE")
 
     def __str__(self):
-        pass
-
+        board_str = "" 
+        for row in self.__positions__:
+            for cell in row:
+                if cell is not None:
+                    board_str += str(cell)  # si hay una pieza la imprime
+                else:
+                    board_str += " "  # si no hay una pieza la imprime vacia
+            board_str += "\n"   
+        return board_str
+    
     def get_size(self):
         return len(self.__positions__)
 
     def get_piece(self, row, col):
         return self.__positions__[row][col]
 
-    def set_piece(self, row, col, piece):
+    def set_piece(self, row, col, piece): 
         self.__positions__[row][col] = piece
 
+    def remove_piece(self, row, col):
+        self.__positions__[row][col] = None
     
 
