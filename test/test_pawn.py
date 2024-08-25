@@ -53,3 +53,13 @@ class TestPawn(unittest.TestCase):
         expected_moves = [(5, 4), (4, 4)]
         self.assertIn((4, 4), actual_moves)
         self.assertEqual(sorted(actual_moves), sorted(expected_moves))
+
+    def test_pawn_move(self):
+        self.__board__.set_piece(6, 4, Pawn("WHITE"))
+        pawn = self.__board__.get_piece(6, 4)
+        
+        pawn.mover_a(self.__board__, 6, 4, 4, 4)# Mover el peón a la posición (4, 4)
+        
+        self.assertEqual(self.__board__.get_piece(4, 4), pawn) #ver si el peon esta en la 4,4
+        
+        self.assertIsNone(self.__board__.get_piece(6, 4)) #la casilla anterior tiene que estar en none

@@ -1,3 +1,9 @@
+## [1.2.3] - 25 de agosto de 2024
+# Agregado
+- Cree todos los metodos para el rey y el caballo y sus test corren al 100% (es bastante similar al de las demas piezas, por eso ni aclaro muchos metodos)
+- Solo queda definir y testear bishop, pero voy bien!
+- Aun sigo sin poder ver la complegidad, ni lo del circleci
+
 ## [1.2.2] - 24 de agosto de 2024
 # Agregado
 - Test para la reina, movimientos coverage al 100%
