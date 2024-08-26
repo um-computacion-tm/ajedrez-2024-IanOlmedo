@@ -21,6 +21,7 @@ class King(Piece):
                     moves.append((r, c))  # Es una pieza enemiga, puede capturarla
                 # No se rompe el bucle porque el rey solo puede moverse un paso en cada dirección.
 
+
         return moves
 
 

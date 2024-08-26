@@ -1,3 +1,7 @@
+## [1.2.4] - 26 de agosto de 2024
+# Agregado
+- Terminado el Alfil con sus test correspondientes, coverage con 100%
+
 ## [1.2.3] - 25 de agosto de 2024
 # Agregado
 - Cree todos los metodos para el rey y el caballo y sus test corren al 100% (es bastante similar al de las demas piezas, por eso ni aclaro muchos metodos)
