@@ -11,15 +11,23 @@ class RookTest(unittest.TestCase):
         self.__board__.set_piece(0, 0, self.__rook__) #pone la pieza blanca en el 7,7""""
 
 
+
+
+
     def test_get_moves_rook(self):  #no debe dar ningun movimiento porque esta encerrada por un peon y el caballo
         expected_moves = []
         result = self.__rook__.get_moves_rook(self.__board__, 7, 7)
         self.assertEqual(result, expected_moves)
 
+
+
+
     def test_get_moves_rook2(self):  #esta encerrado por 2 de distinto color
         expected_moves = [(0,1),(1,0)]
         result = self.__rook__.get_moves_rook(self.__board__, 0, 0)
         self.assertEqual(sorted(result), sorted(expected_moves))
+
+
 
     def test_rook_moves_middle_board(self):
         # Colocar la torre en el medio del tablero
