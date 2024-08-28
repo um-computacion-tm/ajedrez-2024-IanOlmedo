@@ -38,7 +38,7 @@ class Board:
         for row in self.__positions__:
             for cell in row:
                 if cell is not None:
-                    board_str += str(cell)  # si hay una pieza la imprime
+                    board_str += str(cell)  # si hay una pieza la muestra
                 else:
                     board_str += " "  # si no hay una pieza la imprime vacia
             board_str += "\n"   

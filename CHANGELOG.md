@@ -1,3 +1,8 @@
+## [1.2.5] - 28 de agosto de 2024
+# Agregado
+- Eliminando la redundancia de codigo en rook, bishop y queen
+- Un metodo genera que se llame en cada uno de las clases dichas
+
 ## [1.2.4] - 26 de agosto de 2024
 # Agregado
 - Terminado el Alfil con sus test correspondientes, coverage con 100%
