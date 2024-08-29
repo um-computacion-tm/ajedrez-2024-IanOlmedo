@@ -2,24 +2,14 @@ from ajedrez.piezas import Piece
 
 
 class Bishop(Piece):
-    def __str__(self):
-        if self.__color__ == "WHITE":
-            return "♗"
-        else:
-            return "♝"
+    white_str = "♗"
+    black_str = "♝"
+
 
     def get_moves_bishop(self, board, from_row, from_col):
-        #Como se mueve la Torre
-        pass
+        directions = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+        return self.get_pieces_moves_rqb(board, from_row, from_col, directions)
 
-
-    def posibles_movimientos(self, from_row, from_col):
-        bishop = self.Board.get_piece(from_row, from_col)
-        if bishop is None:  
-            return []
-        else:
-            return bishop.get_moves_bishop(self.Board, from_row, from_col)
-
-
-    def mover_a(self, from_row, from_col, to_row, to_col):
-        pass
+    def mover_a(self, board, from_row, from_col, to_row, to_col):
+        board.set_piece(to_row, to_col, self)
+        board.remove_piece(from_row, from_col)

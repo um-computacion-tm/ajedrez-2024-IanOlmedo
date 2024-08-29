@@ -2,13 +2,10 @@ from ajedrez.piezas import Piece
 
 
 class Pawn(Piece):
+    white_str = "♙"
+    black_str = "♟"
 
-    def __str__(self):
-        if self.__color__ == "WHITE":
-            return "♙"
-        else:
-            return "♟"
-
+    
     def get_moves_pawn(self, board, from_row, from_col):
         moves = []
 
@@ -37,5 +34,6 @@ class Pawn(Piece):
         return moves
 
 
-    def mover_a(self, from_row, from_col, to_row, to_col):
-        pass
+    def mover_a(self, board, from_row, from_col, to_row, to_col):
+        board.set_piece(to_row, to_col, self)
+        board.remove_piece(from_row, from_col)

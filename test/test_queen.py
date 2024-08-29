@@ -8,20 +8,27 @@ class TestQueen(unittest.TestCase):
         self.__board__ = Board()
         self.__queen__ = Queen("WHITE")
 
+
     def test_str(self):
         self.assertEqual(str(self.__queen__), "♕")
+
+
 
     def test_get_moves_queen(self):  #encerrado por mismo color
         expected_moves = []
         result = self.__queen__.get_moves_queen(self.__board__, 7, 3)
         self.assertEqual(result, expected_moves)
 
+
+
     def test_get_moves_queen2(self):  #esta encerrado por 2 de distinto color
         expected_moves = [(0,2),(1,2), (1,3),(1,4), (0,4) ]
         result = self.__queen__.get_moves_queen(self.__board__, 0, 3)
         self.assertEqual(sorted(result), sorted(expected_moves))
 ##Exelenteeeee
-    
+
+
+
     def test_queen_moves_middle_board(self):
         # Colocar la torre en el medio del tablero
         self.__board__.set_piece(4, 4, Queen("WHITE"))
@@ -33,6 +40,7 @@ class TestQueen(unittest.TestCase):
 
         actual_moves = queen.get_moves_queen(self.__board__, 4, 4)
         self.assertEqual(sorted(actual_moves), sorted(expected_moves))
+
 
     def test_mover_a(self):
         # mueve a la reina del 4,4 al 5,5
