@@ -8,8 +8,6 @@ class TestHorse(unittest.TestCase):
         self.__board__ = Board()
         self.__horse__ = Horse("WHITE")
 
-    def test_str(self):
-        self.assertEqual(str(self.__horse__), "♘") 
 
     def test_get_moves_horse(self): #posicion inicial de blancas
         self.__board__.set_piece(7, 6, self.__horse__)

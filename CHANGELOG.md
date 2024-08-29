@@ -1,7 +1,7 @@
-## [1.2.5] - 28 de agosto de 2024
+## [1.2.6] - 28 de agosto de 2024
 # Agregado
-- Eliminando la redundancia de codigo en rook, bishop y queen
-- Un metodo genera que se llame en cada uno de las clases dichas
+- Refactorizando todas las funciones compatibles en los test de queen, bishop y rook
+- Cree un archivo test_pieces.py para evitar la redundacia en los test y ahi poner los test que comparten las piezas(por el momento queen, rook y bishop)
 
 ## [1.2.4] - 26 de agosto de 2024
 # Agregado

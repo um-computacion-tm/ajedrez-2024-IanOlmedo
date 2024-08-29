@@ -7,8 +7,6 @@ class TestPawn(unittest.TestCase):
         self.__board__ = Board()
         self.__pawn__ = Pawn("WHITE")
 
-    def test_str(self):
-        self.assertEqual(str(self.__pawn__), "♙")
 
     def test_get_moves_pawn(self):
         self.__board__.set_piece(6,3, self.__pawn__)
@@ -41,7 +39,7 @@ class TestPawn(unittest.TestCase):
 
         self.assertEqual(pawn.get_moves_pawn(self.__board__, 3, 3), [(2,3)])
 
-    def test_pawn_double_move(self):
+    def test_pawn_inicio(self):
         # Colocar un peón blanco en su posición inicial
         pawn = Pawn("WHITE")
         self.__board__.set_piece(6, 4, pawn)
@@ -54,7 +52,7 @@ class TestPawn(unittest.TestCase):
         self.assertIn((4, 4), actual_moves)
         self.assertEqual(sorted(actual_moves), sorted(expected_moves))
 
-    def test_pawn_move(self):
+    def test_pawn_mover_a(self):
         self.__board__.set_piece(6, 4, Pawn("WHITE"))
         pawn = self.__board__.get_piece(6, 4)
         
