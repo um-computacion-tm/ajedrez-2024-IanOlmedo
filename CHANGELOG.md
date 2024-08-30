@@ -1,7 +1,16 @@
+## [1.2.7] - 30 de agosto de 2024
+# Agregado
+- Refactorizando el Peon separando el metodo global en 3 diferentes
+- voy a intentar de mañana seguir refactorizando
+
 ## [1.2.6] - 28 de agosto de 2024
 # Agregado
 - Refactorizando todas las funciones compatibles en los test de queen, bishop y rook
 - Cree un archivo test_pieces.py para evitar la redundacia en los test y ahi poner los test que comparten las piezas(por el momento queen, rook y bishop)
+
+## [1.2.5] - 28 de agosto de 2024
+# Agregado
+- Lo estoy agregando el dia 30 por que me olvide de agregarlo en su momento (no me acuerdo lo que hacbia hecho)
 
 ## [1.2.4] - 26 de agosto de 2024
 # Agregado

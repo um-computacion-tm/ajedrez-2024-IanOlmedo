@@ -1,38 +1,42 @@
 from ajedrez.piezas import Piece
 
-
 class Pawn(Piece):
     white_str = "♙"
     black_str = "♟"
 
-    
     def get_moves_pawn(self, board, from_row, from_col):
         moves = []
-
-        #movimiento comun hacia adelante de uno en uno
-        direction = -1 if self.__color__ == "WHITE" else 1
-        r, c = from_row + direction, from_col  #solo aumenta la fila porque se mueve solo para adelante
-        if 0 <= r < 8: #ve si esta dentro del rango de las filas
-            if board.get_piece(r, c) is None:
-                moves.append((r, c))  # puede moverse hacia adelante
-
-                
-                start_row = 6 if self.__color__ == "WHITE" else 1 #si el peon esya en la fila 6 o 1 puede moverse dos casillas
-                if from_row == start_row:
-                    r_double = from_row + 2 * direction #cantidad de movimientos base x 2
-                    if board.get_piece(r_double, c) is None: #si esta vacia puede moverse
-                        moves.append((r_double, c))
-
+        direction = -1 if self.get_color() == "WHITE" else 1
+        # Movimiento hacia adelante
+        moves.extend(self.movimientos_pawn(board, from_row, from_col, direction)) #agrega los movimientos a la lista
         # Captura en diagonal
-        for dc in [-1, 1]:  # Diagonales izquierda y derecha
-            r_diag, c_diag = from_row + direction, from_col + dc #dc = 1 o -1
-            if 0 <= r_diag < 8 and 0 <= c_diag < 8: #se fija si el move esta dentro del tablero
-                piece = board.get_piece(r_diag, c_diag)
-                if piece is not None and piece.get_color() != self.get_color():
-                    moves.append((r_diag, c_diag))  # Captura en diagonal
+        moves.extend(self.capturas_diagonales(board, from_row, from_col, direction))
 
         return moves
 
+    def movimientos_pawn(self, board, from_row, from_col, direction): 
+        moves = []
+        r, c = from_row + direction, from_col
+        if 0 <= r < 8 and board.get_piece(r, c) is None:
+            moves.append((r, c))
+
+            start_row = 6 if self.get_color() == "WHITE" else 1
+            if from_row == start_row:
+                r_double = from_row + 2 * direction
+                if board.get_piece(r_double, c) is None:
+                    moves.append((r_double, c))
+
+        return moves
+
+    def capturas_diagonales(self, board, from_row, from_col, direction):
+        moves = []
+        for dc in [-1, 1]:
+            r_diag, c_diag = from_row + direction, from_col + dc
+            if 0 <= r_diag < 8 and 0 <= c_diag < 8:
+                piece = board.get_piece(r_diag, c_diag)
+                if piece is not None and piece.get_color() != self.get_color():
+                    moves.append((r_diag, c_diag))
+        return moves
 
     def mover_a(self, board, from_row, from_col, to_row, to_col):
         board.set_piece(to_row, to_col, self)
