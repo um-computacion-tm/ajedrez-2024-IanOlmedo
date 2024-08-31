@@ -1,6 +1,7 @@
-## [1.2.8] - 30 de agosto de 2024
+## [1.2.8] - 31 de agosto de 2024
 # Agregado
 - Mismo dia que el commit anterior intentando de refactorizar(me esta costando bastante por lo visto)
+- Dia diferente al commit anterior movi el  metodo mover_a a piezas.py y me tengo coverage al 100.
 
 ## [1.2.7] - 30 de agosto de 2024
 # Agregado
