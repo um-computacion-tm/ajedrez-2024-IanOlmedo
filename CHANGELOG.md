@@ -1,3 +1,7 @@
+## [1.2.8] - 30 de agosto de 2024
+# Agregado
+- Mismo dia que el commit anterior intentando de refactorizar(me esta costando bastante por lo visto)
+
 ## [1.2.7] - 30 de agosto de 2024
 # Agregado
 - Refactorizando el Peon separando el metodo global en 3 diferentes

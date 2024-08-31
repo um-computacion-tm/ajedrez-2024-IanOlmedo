@@ -12,7 +12,6 @@ class RookTest(unittest.TestCase):
     def test_str(self):
         self.assertEqual(str(self.__rook__), "♖")
 
-
 if __name__ == '__main__':
     unittest.main()
 
