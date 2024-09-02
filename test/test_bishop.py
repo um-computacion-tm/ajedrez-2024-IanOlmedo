@@ -19,9 +19,10 @@ class TestBishop(unittest.TestCase):
         results = sorted(self.__bishop__.get_moves_bishop(self.__board__, 4, 6))
         self.assertEqual(results, sorted(expected_moves))
 
-        self.__bishop__.mover_a(self.__board__, 4, 6, 5, 5)
+        self.__bishop__.mover_a_rqb(self.__board__, 4, 6, 5, 5)
         self.assertEqual(self.__board__.get_piece(5, 5), self.__bishop__)
         self.assertIsNone(self.__board__.get_piece(4, 6))
+
 
 if __name__ == "__main__":
     unittest.main()

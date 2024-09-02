@@ -1,3 +1,10 @@
+## [1.2.9] - 01 de agosto de 2024
+# Agregado
+- Este commit es un poco caotico, no funciona nada porque agregue inits en cada pieza con las direcciones a las que puede moverse cada pieza
+- Hices una limpieza en los metodos del peon
+- Intente mejorar la presicion del metodo deejecucion de los movimientos pero estoy teniendo complejidades que no estoy pudiendo resolver, intentare resolverlas mañana
+o derectamente consultare en clase
+
 ## [1.2.8] - 31 de agosto de 2024
 # Agregado
 - Mismo dia que el commit anterior intentando de refactorizar(me esta costando bastante por lo visto)

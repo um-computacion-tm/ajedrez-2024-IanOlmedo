@@ -14,9 +14,6 @@ class Chess:
             from_col, 
             to_row, 
             to_col):
-        piece = self.__board__.get_piece(from_row, from_col)
-        if piece:
-            piece.mover_a(self.__board__, from_row, from_col, to_row, to_col)
             self.change_turn()
 
     @property

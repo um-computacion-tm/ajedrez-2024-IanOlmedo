@@ -40,14 +40,14 @@ class TestKing(unittest.TestCase):
     def test_king_mover_a(self):
         self.__board__.set_piece(7, 4, self.__king__)
         # Mover a la posición (6,4)
-        self.__king__.mover_a(self.__board__, 7, 4, 6, 4)
+        self.__king__.mover_a_kh(self.__board__, 7, 4, 6, 4)
         self.assertEqual(self.__board__.get_piece(6, 4), self.__king__)
         self.assertIsNone(self.__board__.get_piece(7, 4))
 
         # Capturar pieza enemiga
         enemy_pawn = Pawn("BLACK")
         self.__board__.set_piece(5, 4, enemy_pawn)
-        self.__king__.mover_a(self.__board__, 6, 4, 5, 4)
+        self.__king__.mover_a_kh(self.__board__, 6, 4, 5, 4)
         self.assertEqual(self.__board__.get_piece(5, 4), self.__king__)
         self.assertIsNone(self.__board__.get_piece(6, 4))
 
