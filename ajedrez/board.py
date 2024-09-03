@@ -5,6 +5,7 @@ from ajedrez.queen import Queen
 from ajedrez.king import King
 from ajedrez.pawn import Pawn
 
+
 class Board:
     def __init__(self):
         self.__positions__ = []
@@ -49,11 +50,16 @@ class Board:
 
     def get_piece(self, row, col):
         return self.__positions__[row][col]
+            
 
     def set_piece(self, row, col, piece): 
         self.__positions__[row][col] = piece
 
     def remove_piece(self, row, col):
         self.__positions__[row][col] = None
-    
+
+    def move(self, from_row, from_col, to_row, to_col):
+        pieza = self.get_piece(from_row, from_col)
+        if pieza is None:
+            ...
 

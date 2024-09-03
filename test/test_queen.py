@@ -9,7 +9,9 @@ class TestQueen(unittest.TestCase):
         self.__queen__ = Queen("WHITE")
 
     def test_mover_a(self):
-        self.__queen__.mover_a_rqb(self.__board__, 4, 4, 5, 5)
+
+        self.__board__.set_piece(4, 4, self.__queen__)
+        self.__queen__.mover_a_q(self.__board__, 4, 4, 5, 5)
         self.assertEqual(self.__board__.get_piece(5, 5), self.__queen__)
         self.assertIsNone(self.__board__.get_piece(4, 4))
 

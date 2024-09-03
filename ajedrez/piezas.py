@@ -10,6 +10,7 @@ class Piece:
 
     def get_pieces_moves_rqb(self, board, from_row, from_col, directions):
         moves = []
+        # [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
         for direction in directions:
             r, c = from_row, from_col
             while True:

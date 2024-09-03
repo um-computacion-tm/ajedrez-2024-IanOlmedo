@@ -12,11 +12,13 @@ class King(Piece):
     def get_moves_king(self, board, from_row, from_col):
         return self.get_moves_kh(board, from_row, from_col, self.get_directions_k())
 
-    def mover_a_kh(self, board, from_row, from_col, to_row, to_col):
-        board.get_piece(from_row, from_col)
-        if to_row and to_col in self.get_moves_king(board, from_row, from_col):
+        
+    def mover_a_k(self, board, from_row, from_col, to_row, to_col):
+        valid_moves = self.get_moves_king(board, from_row, from_col)
+
+        if (to_row, to_col) in valid_moves:
             board.set_piece(to_row, to_col, self)
             board.remove_piece(from_row, from_col)
-            return board.get_piece(to_row, to_col)
+            return self
         else:
             return None

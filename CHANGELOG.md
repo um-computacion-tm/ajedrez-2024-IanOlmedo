@@ -1,3 +1,8 @@
+## [1.3.0] - 03 de agosto de 2024
+# Agregado
+- Rediceñado los metodo de movimientos para cada pieza con sus test funcionando(Problema del anterior commit)
+- Faltaria Agregar lo visto hoy en clases e empezar a implementar las excepciones y trabajar mas con el cli y chess
+
 ## [1.2.9] - 01 de agosto de 2024
 # Agregado
 - Este commit es un poco caotico, no funciona nada porque agregue inits en cada pieza con las direcciones a las que puede moverse cada pieza
