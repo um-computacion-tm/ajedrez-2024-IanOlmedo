@@ -92,9 +92,68 @@ class TestBoard(unittest.TestCase):
         self.assertEqual(self.board.get_size(), cantidadcasillas)
 
 
+
+
+
+
+    def test_move_knight(self):
+        # Mover caballo blanco de (7, 1) a (5, 2)
+        moved_piece = self.board.move(7, 1, 5, 2)
+        self.assertIsInstance(moved_piece, Horse)
+        self.assertEqual(self.board.get_piece(5, 2), moved_piece)
+        self.assertIsNone(self.board.get_piece(7, 1))
+
+
+    def test_move_pawn(self):
+        # Mover peón blanco de (6, 0) a (4, 0)
+        self.pawn = Pawn("WHITE")
+        self.board.set_piece(6, 0, self.pawn)
+        moved_piece = self.board.move(6, 0, 4, 0)
+        self.assertIsInstance(moved_piece, Pawn)
+        self.assertEqual(self.board.get_piece(4, 0), moved_piece)
+        self.assertIsNone(self.board.get_piece(6, 0))
+
+    def test_invalid_move(self):
+        # Intentar mover una pieza desde una posición vacía
+        with self.assertRaises(ValueError):
+            self.board.move(2, 2, 3, 3)
+
+        # Intentar mover una pieza a una posición inválida (movimiento no permitido)
+        invalid_move = self.board.move(7, 1, 7, 3)  # Caballo no puede moverse así
+        self.assertIsNone(invalid_move)
+
 if __name__ == '__main__':
     unittest.main()
 
+"""    def test_move_rook(self):
+        # Mover torre blanca de (7, 0) a (5, 0)
+        moved_piece = self.board.move(7, 0, 5, 0)
+        self.assertIsInstance(moved_piece, Rook)
+        self.assertEqual(self.board.get_piece(5, 0), moved_piece)
+        self.assertIsNone(self.board.get_piece(7, 0))
+    def test_move_bishop(self):
+        # Mover alfil blanco de (7, 2) a (5, 0)
+        moved_piece = self.board.move(7, 2, 5, 0)
+        self.assertIsInstance(moved_piece, Bishop)
+        self.assertEqual(self.board.get_piece(5, 0), moved_piece)
+        self.assertIsNone(self.board.get_piece(7, 2))
+    def test_move_king(self):
+        # Mover rey blanco de (7, 4) a (6, 4)
+        self.king = King("WHITE")
+        self.board.set_piece(2, 2, self.king)
+        moved_piece = self.board.move(2, 2, 1, 1)
+        self.assertIsInstance(moved_piece, King)
+        self.assertEqual(self.board.get_piece(6, 4), moved_piece)
+        self.assertIsNone(self.board.get_piece(7, 4))
 
+    def test_move_queen(self):
+        # Mover reina blanca de (7, 3) a (6, 3)
+        self.queen = Queen("WHITE")
+        self.board.set_piece(4,4, self.queen)
+        moved_piece = self.board.move(4, 4, 2, 4)
+        self.assertIsInstance(moved_piece, Queen)
+        self.assertEqual(self.board.get_piece(6, 3), moved_piece)
+        self.assertIsNone(self.board.get_piece(7, 3))
+"""
 
 

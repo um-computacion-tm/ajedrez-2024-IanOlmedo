@@ -38,3 +38,9 @@ class TestPawn(unittest.TestCase):
         self.assertEqual(self.__board__.get_piece(4, 4), pawn) #ver si el peon esta en la 4,4
         
         self.assertIsNone(self.__board__.get_piece(6, 4)) #la casilla anterior tiene que estar en none
+
+    def test_movimiento_pawn_invalido(self):
+        self.__board__.set_piece(6, 4, self.__pawn__)
+        movimiento = self.__pawn__.mover_a_pawn(self.__board__, 6, 4, 7, 4)
+
+        self.assertIsNone (movimiento)

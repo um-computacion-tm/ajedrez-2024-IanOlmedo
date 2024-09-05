@@ -23,6 +23,11 @@ class TestBishop(unittest.TestCase):
         self.assertEqual(self.__board__.get_piece(5, 5), self.__bishop__)
         self.assertIsNone(self.__board__.get_piece(4, 6))
 
+    def test_movimiento_bishop_invalido(self):
+        self.__board__.set_piece(6, 4, self.__bishop__)
+        movimiento = self.__bishop__.mover_a_b(self.__board__, 7, 2, 4, 4)
+
+        self.assertIsNone (movimiento)
 
 if __name__ == "__main__":
     unittest.main()

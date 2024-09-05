@@ -43,5 +43,11 @@ class TestKing(unittest.TestCase):
         self.assertEqual(self.__board__.get_piece(1, 3), self.__king__)
         self.assertIsNone(self.__board__.get_piece(2, 4))
 
+    def test_movimiento_king_invalido(self):
+        self.__board__.set_piece(6, 4, self.__king__)
+        movimiento = self.__king__.mover_a_k(self.__board__, 7, 4, 7, 5)
+
+        self.assertIsNone (movimiento)
+
 if __name__ == '__main__':
     unittest.main()

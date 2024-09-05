@@ -1,3 +1,10 @@
+## [1.3.1] - 04 de agosto de 2024
+# Agregado
+- Refactorizando todos test antiguos en base a los nuevos metodos relacionado con los mover_a
+- Cree un metodo en board (move) que valida a que pieza pertece la direccion inicial(from_row, from_col) y dependiendo de esto, 
+le devuelve los metodos correspondientes dependiendo de la clase. Hice un par de test pero estoy teniendo problemas con validar 
+las piezas que estan rodeadas por aliedas(que no pueden moverse). 
+
 ## [1.3.0] - 03 de agosto de 2024
 # Agregado
 - Rediceñado los metodo de movimientos para cada pieza con sus test funcionando(Problema del anterior commit)
@@ -25,7 +32,7 @@ o derectamente consultare en clase
 - Refactorizando todas las funciones compatibles en los test de queen, bishop y rook
 - Cree un archivo test_pieces.py para evitar la redundacia en los test y ahi poner los test que comparten las piezas(por el momento queen, rook y bishop)
 
-## [1.2.5] - 28 de agosto de 2024
+## [1.2.5] - 27 de agosto de 2024
 # Agregado
 - Lo estoy agregando el dia 30 por que me olvide de agregarlo en su momento (no me acuerdo lo que hacbia hecho)
 
