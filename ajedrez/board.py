@@ -79,8 +79,8 @@ class Board:
             return piece.mover_a_q(self, from_row, from_col, to_row, to_col)
         elif isinstance(piece, Pawn):
             return piece.mover_a_pawn(self, from_row, from_col, to_row, to_col)
-        else:
-            raise ValueError("Tipo de pieza desconocido")
+
+
 
 
 

@@ -1,3 +1,10 @@
+## [1.3.2] - 05 de agosto de 2024
+# Agregado
+- Generando avances en chess, con un poco de problemas con la importacion con board
+- Testeado todos las posubles instancias del metodo move en board y ahora intentando de aplicarlas en chess
+- mi ultimo problema es que el test no me identifica que haya alguna figura en el 4,4, mientras claramente estoy seteando el rey ahii
+
+
 ## [1.3.1] - 04 de agosto de 2024
 # Agregado
 - Refactorizando todos test antiguos en base a los nuevos metodos relacionado con los mover_a

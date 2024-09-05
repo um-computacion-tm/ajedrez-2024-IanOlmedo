@@ -122,38 +122,67 @@ class TestBoard(unittest.TestCase):
         invalid_move = self.board.move(7, 1, 7, 3)  # Caballo no puede moverse así
         self.assertIsNone(invalid_move)
 
+    def test_queen_capture_horse(self):
+        queen = Queen("WHITE")
+        self.board.set_piece(4, 4, queen)
+        horse = Horse("BLACK")
+        self.board.set_piece(2, 4, horse)
+        
+        # Mover la reina a la posición del caballo (2, 4) 
+        moved_piece = self.board.move(4, 4, 2, 4)
+        
+        self.assertIsInstance(moved_piece, Queen) #verifica que la pieza movida sea efectivamente la reina
+        
+        self.assertEqual(self.board.get_piece(2, 4), queen) # ver si la reina esta en el casillero (2, 4)
+    
+        self.assertIsNone(self.board.get_piece(4, 4)) #donde estaba la reina debe quedar en None
+        self.assertNotEqual(self.board.get_piece(2, 4), horse) #ya no tiene que estar el caballo
+
+    def test_king_capture_queen(self):
+        king = King("WHITE")
+        self.board.set_piece(4, 4, king)
+        queen = Queen("BLACK")
+        self.board.set_piece(3, 4, queen)
+        
+        moved_piece = self.board.move(4, 4, 3, 4)
+        
+        self.assertIsInstance(moved_piece, King) #verifica que la pieza movida sea efectivamente el rey
+        
+        self.assertEqual(self.board.get_piece(3, 4), king) 
+    
+        self.assertIsNone(self.board.get_piece(4, 4)) 
+        self.assertNotEqual(self.board.get_piece(3, 4), queen) 
+
+    def test_bishop_capture_rook(self):
+        bishop = Bishop("BLACK")
+        self.board.set_piece(3, 3, bishop)
+        rook = Rook("WHITE")
+        self.board.set_piece(4, 4, rook)
+        
+        moved_piece = self.board.move(3, 3, 4, 4)
+        
+        self.assertIsInstance(moved_piece, Bishop) #verifica que la pieza movida sea efectivamente el alfil
+        
+        self.assertEqual(self.board.get_piece(4, 4), bishop) 
+        self.assertIsNone(self.board.get_piece(3, 3)) 
+        self.assertNotEqual(self.board.get_piece(4, 4), rook)
+
+    def test_rook_capture_bishop(self):
+        rook = Rook("BLACK")
+        self.board.set_piece(3, 3, rook)
+        bishop = Bishop("WHITE")
+        self.board.set_piece(4, 3, bishop)
+        
+        moved_piece = self.board.move(3, 3, 4, 3)
+        
+        self.assertIsInstance(moved_piece, Rook) #verifica que la pieza movida sea efectivamente la torre
+        
+        self.assertEqual(self.board.get_piece(4, 3), rook) 
+        self.assertIsNone(self.board.get_piece(3, 3)) 
+        self.assertNotEqual(self.board.get_piece(4, 3), bishop)
+
+
 if __name__ == '__main__':
     unittest.main()
-
-"""    def test_move_rook(self):
-        # Mover torre blanca de (7, 0) a (5, 0)
-        moved_piece = self.board.move(7, 0, 5, 0)
-        self.assertIsInstance(moved_piece, Rook)
-        self.assertEqual(self.board.get_piece(5, 0), moved_piece)
-        self.assertIsNone(self.board.get_piece(7, 0))
-    def test_move_bishop(self):
-        # Mover alfil blanco de (7, 2) a (5, 0)
-        moved_piece = self.board.move(7, 2, 5, 0)
-        self.assertIsInstance(moved_piece, Bishop)
-        self.assertEqual(self.board.get_piece(5, 0), moved_piece)
-        self.assertIsNone(self.board.get_piece(7, 2))
-    def test_move_king(self):
-        # Mover rey blanco de (7, 4) a (6, 4)
-        self.king = King("WHITE")
-        self.board.set_piece(2, 2, self.king)
-        moved_piece = self.board.move(2, 2, 1, 1)
-        self.assertIsInstance(moved_piece, King)
-        self.assertEqual(self.board.get_piece(6, 4), moved_piece)
-        self.assertIsNone(self.board.get_piece(7, 4))
-
-    def test_move_queen(self):
-        # Mover reina blanca de (7, 3) a (6, 3)
-        self.queen = Queen("WHITE")
-        self.board.set_piece(4,4, self.queen)
-        moved_piece = self.board.move(4, 4, 2, 4)
-        self.assertIsInstance(moved_piece, Queen)
-        self.assertEqual(self.board.get_piece(6, 3), moved_piece)
-        self.assertIsNone(self.board.get_piece(7, 3))
-"""
 
 
