@@ -59,14 +59,15 @@ class Board:
         self.__positions__[row][col] = None
 
     
-    def move(self, from_row, from_col, to_row, to_col):
-        # definimos la pieza que queremos mover y llamamos el metodo segun corresponda
+    def ejecutar_move(self, from_row, from_col, to_row, to_col):
+
+        # Obtiene la pieza
         piece = self.get_piece(from_row, from_col)
 
         if piece is None:
             raise ValueError("No hay ninguna pieza en la posición de origen")
 
-        # Aca revisamos uno por uno a que instacia pertenece piece(ojala no de complejidad)
+        # Mueve la pieza según su tipo
         if isinstance(piece, Rook):
             return piece.mover_a_r(self, from_row, from_col, to_row, to_col)
         elif isinstance(piece, Bishop):
@@ -79,6 +80,7 @@ class Board:
             return piece.mover_a_q(self, from_row, from_col, to_row, to_col)
         elif isinstance(piece, Pawn):
             return piece.mover_a_pawn(self, from_row, from_col, to_row, to_col)
+
 
 
 

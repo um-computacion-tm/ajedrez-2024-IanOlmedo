@@ -9,23 +9,19 @@ class Chess:
     def is_playing(self):
         return True
 
-    def move(
-        self,
-        from_row,
-        from_col,
-        to_row,
-        to_col,
-    ):
-        # validate coords
+    def move(self, from_row, from_col, to_row, to_col):
         piece = self.__board__.get_piece(from_row, from_col)
+        
         if not piece:
             raise EmptyPosition()
         if not piece.get_color() == self.__turn__:
             raise InvalidTurn()
-        if not piece.valid_positions(from_row, from_col, to_row, to_col):
-            raise InvalidMove()
-        self.__board__.move(from_row, from_col, to_row, to_col)
-        self.change_turn()
+        # vamos a confiar en mis metodos de cada pieza
+        moved_piece = self.__board__.ejecutar_move(from_row, from_col, to_row, to_col)
+        
+
+        if moved_piece:
+            self.change_turn()
 
     @property
     def turn(self):

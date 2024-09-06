@@ -41,3 +41,4 @@ class Piece:
                     moves.append((r, c))
         return moves
     
+    
