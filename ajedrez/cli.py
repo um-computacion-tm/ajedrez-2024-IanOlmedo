@@ -1,5 +1,5 @@
 from ajedrez.chess import Chess
-
+from ajedrez.exceptions import InvalidMove, InvalidTurn, EmptyPosition
 
 def main():
     chess = Chess()
@@ -22,6 +22,8 @@ def play(chess):
             to_row,
             to_col,
         )
+    except InvalidMove as e:
+        print(e)
     except Exception as e:
         print("error", e)
 

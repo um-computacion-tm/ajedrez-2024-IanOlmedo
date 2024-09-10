@@ -4,8 +4,21 @@ class King(Piece):
     white_str = "♔"
     black_str =  "♚"
 
+
+    def get_directions_k(self):
+        return [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+    
+
     def get_moves_king(self, board, from_row, from_col):
-        directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
-        return self.get_moves_kh(board, from_row, from_col, directions)
+        return self.get_moves_kh(board, from_row, from_col, self.get_directions_k())
 
+        
+    def mover_a_k(self, board, from_row, from_col, to_row, to_col):
+        valid_moves = self.get_moves_king(board, from_row, from_col)
 
+        if (to_row, to_col) in valid_moves:
+            board.set_piece(to_row, to_col, self)
+            board.remove_piece(from_row, from_col)
+            return self
+        else:
+            return None

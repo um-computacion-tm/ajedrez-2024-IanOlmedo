@@ -5,6 +5,7 @@ from ajedrez.queen import Queen
 from ajedrez.king import King
 from ajedrez.pawn import Pawn
 
+
 class Board:
     def __init__(self):
         self.__positions__ = []
@@ -49,11 +50,39 @@ class Board:
 
     def get_piece(self, row, col):
         return self.__positions__[row][col]
+            
 
     def set_piece(self, row, col, piece): 
         self.__positions__[row][col] = piece
 
     def remove_piece(self, row, col):
         self.__positions__[row][col] = None
+
     
+    def ejecutar_move(self, from_row, from_col, to_row, to_col):
+
+        # Obtiene la pieza
+        piece = self.get_piece(from_row, from_col)
+
+        if piece is None:
+            raise ValueError("No hay ninguna pieza en la posición de origen")
+
+        # Mueve la pieza según su tipo
+        if isinstance(piece, Rook):
+            return piece.mover_a_r(self, from_row, from_col, to_row, to_col)
+        elif isinstance(piece, Bishop):
+            return piece.mover_a_b(self, from_row, from_col, to_row, to_col)
+        elif isinstance(piece, Horse):
+            return piece.mover_a_h(self, from_row, from_col, to_row, to_col)
+        elif isinstance(piece, King):
+            return piece.mover_a_k(self, from_row, from_col, to_row, to_col)
+        elif isinstance(piece, Queen):
+            return piece.mover_a_q(self, from_row, from_col, to_row, to_col)
+        elif isinstance(piece, Pawn):
+            return piece.mover_a_pawn(self, from_row, from_col, to_row, to_col)
+
+
+
+
+
 

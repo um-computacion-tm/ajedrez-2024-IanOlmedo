@@ -5,8 +5,18 @@ class Queen(Piece):
     white_str = "♕"
     black_str = "♛"
 
-
+    def get_directions_q(self):   # Tiene que ser generico, refactorizar para que este en piezas y no lo tengan cada pieza 
+        return [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+    
     def get_moves_queen(self, board, from_row, from_col):
-        directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
-        return self.get_pieces_moves_rqb(board, from_row, from_col, directions)
+        return self.get_pieces_moves_rqb(board, from_row, from_col, self.get_directions_q())
 
+    def mover_a_q(self, board, from_row, from_col, to_row, to_col):
+        valid_moves = self.get_moves_queen(board, from_row, from_col)
+
+        if (to_row, to_col) in valid_moves:
+            board.set_piece(to_row, to_col, self)
+            board.remove_piece(from_row, from_col)
+            return self
+        else:
+            return None

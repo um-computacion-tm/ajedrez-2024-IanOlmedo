@@ -1,3 +1,33 @@
+## [1.3.3] - 07 de agosto de 2024
+# Agregado
+- Ya termine de corregir todos los metodos, resueltos los problemas de ayer. Metodo move de chess llama a metodo ejecutar_move en board
+haciendo que se complementen. No se que mas faltaria agregas en chess, pero ya hay que empezar a jugar con el cli
+
+## [1.3.2] - 05 de agosto de 2024
+# Agregado
+- Generando avances en chess, con un poco de problemas con la importacion con board
+- Testeado todos las posubles instancias del metodo move en board y ahora intentando de aplicarlas en chess
+- Mi ultimo problema es que el test no me identifica que haya alguna figura en el 4,4, mientras claramente estoy seteando el rey ahii
+
+## [1.3.1] - 04 de agosto de 2024
+# Agregado
+- Refactorizando todos test antiguos en base a los nuevos metodos relacionado con los mover_a
+- Cree un metodo en board (move) que valida a que pieza pertece la direccion inicial(from_row, from_col) y dependiendo de esto, 
+le devuelve los metodos correspondientes dependiendo de la clase. Hice un par de test pero estoy teniendo problemas con validar 
+las piezas que estan rodeadas por aliedas(que no pueden moverse). 
+
+## [1.3.0] - 03 de agosto de 2024
+# Agregado
+- Rediceñado los metodo de movimientos para cada pieza con sus test funcionando(Problema del anterior commit)
+- Faltaria Agregar lo visto hoy en clases e empezar a implementar las excepciones y trabajar mas con el cli y chess
+
+## [1.2.9] - 01 de agosto de 2024
+# Agregado
+- Este commit es un poco caotico, no funciona nada porque agregue inits en cada pieza con las direcciones a las que puede moverse cada pieza
+- Hices una limpieza en los metodos del peon
+- Intente mejorar la presicion del metodo deejecucion de los movimientos pero estoy teniendo complejidades que no estoy pudiendo resolver, intentare resolverlas mañana
+o derectamente consultare en clase
+
 ## [1.2.8] - 31 de agosto de 2024
 # Agregado
 - Mismo dia que el commit anterior intentando de refactorizar(me esta costando bastante por lo visto)
@@ -13,7 +43,7 @@
 - Refactorizando todas las funciones compatibles en los test de queen, bishop y rook
 - Cree un archivo test_pieces.py para evitar la redundacia en los test y ahi poner los test que comparten las piezas(por el momento queen, rook y bishop)
 
-## [1.2.5] - 28 de agosto de 2024
+## [1.2.5] - 27 de agosto de 2024
 # Agregado
 - Lo estoy agregando el dia 30 por que me olvide de agregarlo en su momento (no me acuerdo lo que hacbia hecho)
 
