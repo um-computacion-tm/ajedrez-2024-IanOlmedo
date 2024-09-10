@@ -13,6 +13,8 @@ class Rook(Piece):
         # Movimientos en línea recta
         return self.get_pieces_moves_rqb(board, from_row, from_col, self.get_directions_r())
 
+
+
     def mover_a_r(self, board, from_row, from_col, to_row, to_col):
         valid_moves = self.get_moves_rook(board, from_row, from_col)
 

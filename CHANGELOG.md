@@ -1,4 +1,4 @@
-## [1.3.2] - 05 de agosto de 2024
+## [1.3.3] - 07 de agosto de 2024
 # Agregado
 - Ya termine de corregir todos los metodos, resueltos los problemas de ayer. Metodo move de chess llama a metodo ejecutar_move en board
 haciendo que se complementen. No se que mas faltaria agregas en chess, pero ya hay que empezar a jugar con el cli

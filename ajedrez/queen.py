@@ -5,7 +5,7 @@ class Queen(Piece):
     white_str = "♕"
     black_str = "♛"
 
-    def get_directions_q(self):
+    def get_directions_q(self):   # Tiene que ser generico, refactorizar para que este en piezas y no lo tengan cada pieza 
         return [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
     
     def get_moves_queen(self, board, from_row, from_col):
