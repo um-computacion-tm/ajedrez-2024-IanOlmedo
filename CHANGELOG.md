@@ -1,27 +1,34 @@
-## [1.3.3] - 07 de agosto de 2024
+# [1.3.4] - 11 de septiembre de 2024
+# Agregado
+- ¡Nuevo! metodo en generico en piezas, donde almacena todas las direciones de cada pieza, y las retorna dependiendo de lo que se
+le pase en el metodo "get_moves_pieza". Recibe el nombre de la pieza y le asigna a una variable directions las direcciones segun 
+las piezas y luego la usa como parametro para otro metodo en pieces. Coverage al 100%. Por motivos de tiempo no puedo avanzar mas 
+por hoy.
+
+# [1.3.3] - 07 de septiembre de 2024
 # Agregado
 - Ya termine de corregir todos los metodos, resueltos los problemas de ayer. Metodo move de chess llama a metodo ejecutar_move en board
 haciendo que se complementen. No se que mas faltaria agregas en chess, pero ya hay que empezar a jugar con el cli
 
-## [1.3.2] - 05 de agosto de 2024
+## [1.3.2] - 05 de septiembre de 2024
 # Agregado
 - Generando avances en chess, con un poco de problemas con la importacion con board
 - Testeado todos las posubles instancias del metodo move en board y ahora intentando de aplicarlas en chess
 - Mi ultimo problema es que el test no me identifica que haya alguna figura en el 4,4, mientras claramente estoy seteando el rey ahii
 
-## [1.3.1] - 04 de agosto de 2024
+## [1.3.1] - 04 de septiembre de 2024
 # Agregado
 - Refactorizando todos test antiguos en base a los nuevos metodos relacionado con los mover_a
 - Cree un metodo en board (move) que valida a que pieza pertece la direccion inicial(from_row, from_col) y dependiendo de esto, 
 le devuelve los metodos correspondientes dependiendo de la clase. Hice un par de test pero estoy teniendo problemas con validar 
 las piezas que estan rodeadas por aliedas(que no pueden moverse). 
 
-## [1.3.0] - 03 de agosto de 2024
+## [1.3.0] - 03 de septiembre de 2024
 # Agregado
 - Rediceñado los metodo de movimientos para cada pieza con sus test funcionando(Problema del anterior commit)
 - Faltaria Agregar lo visto hoy en clases e empezar a implementar las excepciones y trabajar mas con el cli y chess
 
-## [1.2.9] - 01 de agosto de 2024
+## [1.2.9] - 01 de septiembre de 2024
 # Agregado
 - Este commit es un poco caotico, no funciona nada porque agregue inits en cada pieza con las direcciones a las que puede moverse cada pieza
 - Hices una limpieza en los metodos del peon

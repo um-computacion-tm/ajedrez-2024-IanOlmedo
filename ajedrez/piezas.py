@@ -7,6 +7,16 @@ class Piece:
 
     def get_color(self):
         return self.__color__
+    
+    def get_directions(self, tipo_pieza):
+        directions = {
+            "BISHOP": [(-1, -1), (-1, 1), (1, -1), (1, 1)],
+            "HORSE": [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)],
+            "KING": [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)],
+            "QUEEN": [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)],
+            "ROOK": [(-1, 0), (1, 0), (0, -1), (0, 1)],
+        }
+        return directions.get(tipo_pieza.upper(), [])
 
     def get_pieces_moves_rqb(self, board, from_row, from_col, directions):
         moves = []
