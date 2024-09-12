@@ -2,15 +2,11 @@ from ajedrez.piezas import Piece
 
 class King(Piece):
     white_str = "♔"
-    black_str =  "♚"
-
-
-    def get_directions_k(self):
-        return [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
-    
+    black_str = "♚"
 
     def get_moves_king(self, board, from_row, from_col):
-        return self.get_moves_kh(board, from_row, from_col, self.get_directions_k())
+        directions = self.get_directions("KING")
+        return self.get_moves_kh(board, from_row, from_col, directions)
 
         
     def mover_a_k(self, board, from_row, from_col, to_row, to_col):

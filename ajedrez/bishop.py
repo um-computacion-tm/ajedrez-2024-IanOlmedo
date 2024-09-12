@@ -5,11 +5,10 @@ class Bishop(Piece):
     white_str = "♗"
     black_str = "♝"
 
-    def get_directios_b(self):
-        return [(-1, -1), (-1, 1), (1, -1), (1, 1)]
-
     def get_moves_bishop(self, board, from_row, from_col):
-        return self.get_pieces_moves_rqb(board, from_row, from_col, self.get_directios_b())
+        directions = self.get_directions("BISHOP")
+        return self.get_pieces_moves_rqb(board, from_row, from_col, directions)
+
 
     def mover_a_b(self, board, from_row, from_col, to_row, to_col):
         valid_moves = self.get_moves_bishop(board, from_row, from_col)

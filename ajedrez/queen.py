@@ -1,15 +1,14 @@
 from ajedrez.piezas import Piece
 
-class Queen(Piece):
 
+class Queen(Piece):
     white_str = "♕"
     black_str = "♛"
 
-    def get_directions_q(self):   # Tiene que ser generico, refactorizar para que este en piezas y no lo tengan cada pieza 
-        return [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
-    
     def get_moves_queen(self, board, from_row, from_col):
-        return self.get_pieces_moves_rqb(board, from_row, from_col, self.get_directions_q())
+        directions = self.get_directions("QUEEN")
+        return self.get_pieces_moves_rqb(board, from_row, from_col, directions)
+
 
     def mover_a_q(self, board, from_row, from_col, to_row, to_col):
         valid_moves = self.get_moves_queen(board, from_row, from_col)
