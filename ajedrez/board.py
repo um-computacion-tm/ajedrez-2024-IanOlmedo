@@ -14,6 +14,8 @@ class Board:
             for _ in range(8):
                 col.append(None)
             self.__positions__.append(col)
+
+        # Coloca las piezas en sus posiciones iniciales
         self.__positions__[0][0] = Rook("BLACK")
         self.__positions__[7][7] = Rook("WHITE")
         self.__positions__[0][7] = Rook("BLACK") 
@@ -39,9 +41,9 @@ class Board:
         for row in self.__positions__:
             for cell in row:
                 if cell is not None:
-                    board_str += str(cell)  # si hay una pieza la muestra
+                    board_str += str(cell)  # si hay una pieza, la muestra
                 else:
-                    board_str += " "  # si no hay una pieza la imprime vacia
+                    board_str += " "  # si no hay una pieza, deja un espacio en blanco
             board_str += "\n"   
         return board_str
     
@@ -50,7 +52,6 @@ class Board:
 
     def get_piece(self, row, col):
         return self.__positions__[row][col]
-            
 
     def set_piece(self, row, col, piece): 
         self.__positions__[row][col] = piece
@@ -58,30 +59,28 @@ class Board:
     def remove_piece(self, row, col):
         self.__positions__[row][col] = None
 
-    
-    def ejecutar_move(self, from_row, from_col, to_row, to_col):
 
-        # Obtiene la pieza
+
+
+    # Actualización del método ejecutar_move
+    def ejecutar_move(self, from_row, from_col, to_row, to_col):
         piece = self.get_piece(from_row, from_col)
 
         if piece is None:
             raise ValueError("No hay ninguna pieza en la posición de origen")
-
-        # Mueve la pieza según su tipo
-        if isinstance(piece, Rook):
-            return piece.mover_a_r(self, from_row, from_col, to_row, to_col)
-        elif isinstance(piece, Bishop):
-            return piece.mover_a_b(self, from_row, from_col, to_row, to_col)
-        elif isinstance(piece, Horse):
-            return piece.mover_a_h(self, from_row, from_col, to_row, to_col)
-        elif isinstance(piece, King):
-            return piece.mover_a_k(self, from_row, from_col, to_row, to_col)
-        elif isinstance(piece, Queen):
-            return piece.mover_a_q(self, from_row, from_col, to_row, to_col)
-        elif isinstance(piece, Pawn):
-            return piece.mover_a_pawn(self, from_row, from_col, to_row, to_col)
+        
+        tipo_pieza = piece.__class__.__name__.upper() ##-->>que pieza se esta queriendo mover
 
 
+        if isinstance(piece, Pawn):  ##--->porque el peon tiene metodos especificos
+            moved_piece = piece.mover_a_pawn(self, from_row, from_col, to_row, to_col)
+        else:
+            moved_piece = piece.move_piece(self, from_row, from_col, to_row, to_col, tipo_pieza)
+
+        if moved_piece is None:
+            raise ValueError(f"Movimiento no válido para la pieza {tipo_pieza}")
+        
+        return moved_piece
 
 
 

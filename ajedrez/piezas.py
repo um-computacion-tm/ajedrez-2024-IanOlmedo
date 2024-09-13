@@ -20,7 +20,6 @@ class Piece:
 
     def get_pieces_moves_rqb(self, board, from_row, from_col, directions):
         moves = []
-        # [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
         for direction in directions:
             r, c = from_row, from_col
             while True:
@@ -51,4 +50,18 @@ class Piece:
                     moves.append((r, c))
         return moves
     
-    
+    def move_piece(self, board, from_row, from_col, to_row, to_col, tipo_pieza):  #el peon tiene el metodo en su clase
+        directions = self.get_directions(tipo_pieza)
+
+        if tipo_pieza.upper() in ["ROOK", "BISHOP", "QUEEN"]: ##--> nos fijamos que tipo de pieza es
+            valid_moves = self.get_pieces_moves_rqb(board, from_row, from_col, directions)
+        else:
+            valid_moves = self.get_moves_kh(board, from_row, from_col, directions)
+
+        # si cumpke se ejecuta
+        if (to_row, to_col) in valid_moves:
+            board.set_piece(to_row, to_col, self)
+            board.remove_piece(from_row, from_col)
+            return self
+        else:
+            return None

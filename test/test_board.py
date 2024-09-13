@@ -109,18 +109,19 @@ class TestBoard(unittest.TestCase):
         self.pawn = Pawn("WHITE")
         self.board.set_piece(6, 0, self.pawn)
         moved_piece = self.board.ejecutar_move(6, 0, 4, 0)
+        
         self.assertIsInstance(moved_piece, Pawn)
         self.assertEqual(self.board.get_piece(4, 0), moved_piece)
         self.assertIsNone(self.board.get_piece(6, 0))
 
-    def test_invalid_move(self):
-        # Intentar mover una pieza desde una posición vacía
-        with self.assertRaises(ValueError):
-            self.board.ejecutar_move(2, 2, 3, 3)
 
-        # Intentar mover una pieza a una posición inválida (movimiento no permitido)
-        invalid_move = self.board.ejecutar_move(7, 1, 7, 3)  # Caballo no puede moverse así
-        self.assertIsNone(invalid_move)
+    def test_invalid_move(self):
+        self.horse = Horse("WHITE")
+        self.board.set_piece(7, 1, self.horse)
+        
+        with self.assertRaises(ValueError):
+            self.board.ejecutar_move(7, 1, 7, 3)
+
 
     def test_queen_capture_horse(self):
         queen = Queen("WHITE")
@@ -180,6 +181,10 @@ class TestBoard(unittest.TestCase):
         self.assertEqual(self.board.get_piece(4, 3), rook) 
         self.assertIsNone(self.board.get_piece(3, 3)) 
         self.assertNotEqual(self.board.get_piece(4, 3), bishop)
+
+    def test_no_piece(self):
+        with self.assertRaises(ValueError):
+            self.board.ejecutar_move(3, 2, 3, 3)
 
 
 if __name__ == '__main__':

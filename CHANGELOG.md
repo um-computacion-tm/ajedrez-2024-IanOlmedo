@@ -1,3 +1,9 @@
+# [1.3.5] - 12 de septiembre de 2024
+# Agregado
+- Metodo generico dentro de piezas move_pieces que mueve todas las piezas a excepcion del peon. Y en base a este nuevo metodo, 
+reice el metodo ejeciutar_moves dentro de la clase board + mas la correcion extra de los test.
+- Todo este fue con el fin de reducir los Issues(daniel aclaro que no son muy graves pero son corregibles), y si siguen apareciendo despues de este commit no sabria que hacer.
+
 # [1.3.4] - 11 de septiembre de 2024
 # Agregado
 - ¡Nuevo! metodo en generico en piezas, donde almacena todas las direciones de cada pieza, y las retorna dependiendo de lo que se
