@@ -5,9 +5,14 @@ class Chess:
     def __init__(self):
         self.__board__ = Board()
         self.__turn__ = "WHITE"
+        self.playing = True 
 
     def is_playing(self):
-        return True
+        return self.playing 
+    
+    def end_game(self):
+        self.playing = False  
+        print("El juego ha terminado.")
 
     def move(self, from_row, from_col, to_row, to_col):
         piece = self.__board__.get_piece(from_row, from_col)
@@ -16,10 +21,9 @@ class Chess:
             raise EmptyPosition()
         if not piece.get_color() == self.__turn__:
             raise InvalidTurn()
-        # vamos a confiar en mis metodos de cada pieza
+        
         moved_piece = self.__board__.ejecutar_move(from_row, from_col, to_row, to_col)
         
-
         if moved_piece:
             self.change_turn()
 
@@ -41,6 +45,3 @@ class Chess:
             self.__turn__ = turn
         else:
             raise ValueError("Turno no válido. Debe ser 'WHITE' o 'BLACK'")
-
-
-
