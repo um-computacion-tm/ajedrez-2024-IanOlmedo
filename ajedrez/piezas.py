@@ -18,6 +18,36 @@ class Piece:
         }
         return directions.get(tipo_pieza.upper(), [])
 
+
+    
+    ##Priemero ---> recibe el parametro tipo_pieza desde board
+    def move_piece(self, board, from_row, from_col, to_row, to_col, tipo_pieza):
+        valid_moves = self.get_valid_moves(board, from_row, from_col, tipo_pieza)
+        return self.ejecutar_movimiento(board, from_row, from_col, to_row, to_col, valid_moves)
+
+    #Segundo
+    def get_valid_moves(self, board, from_row, from_col, tipo_pieza):
+        directions = self.get_directions(tipo_pieza)
+        
+        if tipo_pieza.upper() in ["ROOK", "BISHOP", "QUEEN"]:
+            return self.get_pieces_moves_rqb(board, from_row, from_col, directions)
+        else:
+            return self.get_moves_kh(board, from_row, from_col, directions)
+        
+        #Tercero
+    def ejecutar_movimiento(self, board, from_row, from_col, to_row, to_col, valid_moves):
+        if (to_row, to_col) in valid_moves:
+            board.set_piece(to_row, to_col, self)
+            board.remove_piece(from_row, from_col)
+            return self
+        else:
+            return None
+
+
+
+
+
+
     def get_pieces_moves_rqb(self, board, from_row, from_col, directions):
         moves = []
         for direction in directions:
@@ -49,26 +79,3 @@ class Piece:
                 elif piece.get_color() != self.get_color():
                     moves.append((r, c))
         return moves
-    
-    
-    def move_piece(self, board, from_row, from_col, to_row, to_col, tipo_pieza):
-        valid_moves = self.get_valid_moves(board, from_row, from_col, tipo_pieza)
-        return self.ejecutar_movimiento(board, from_row, from_col, to_row, to_col, valid_moves)
-
-    def get_valid_moves(self, board, from_row, from_col, tipo_pieza):
-        directions = self.get_directions(tipo_pieza)
-        
-        if tipo_pieza.upper() in ["ROOK", "BISHOP", "QUEEN"]:
-            return self.get_pieces_moves_rqb(board, from_row, from_col, directions)
-        else:
-            return self.get_moves_kh(board, from_row, from_col, directions)
-        
-        
-    def ejecutar_movimiento(self, board, from_row, from_col, to_row, to_col, valid_moves):
-        if (to_row, to_col) in valid_moves:
-            board.set_piece(to_row, to_col, self)
-            board.remove_piece(from_row, from_col)
-            return self
-        else:
-            return None
-

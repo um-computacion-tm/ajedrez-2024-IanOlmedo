@@ -12,4 +12,3 @@ class Horse(Piece):
 
     def mover_a(self, board, from_row, from_col, to_row, to_col):
         return self.move_piece(board, from_row, from_col, to_row, to_col, "HORSE")
-

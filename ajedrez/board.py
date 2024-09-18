@@ -63,8 +63,6 @@ class Board:
 
 
 
-
-    # Actualización del método ejecutar_move
     def ejecutar_move(self, from_row, from_col, to_row, to_col):
         piece = self.get_piece(from_row, from_col)
 
