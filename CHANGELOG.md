@@ -1,3 +1,10 @@
+# [1.3.7] - 18 de septiembre de 2024
+# Agregado
+- Refactorice el metodo que ejecuta los movimientos de cada pieza porque se veia un codigo similar en el del pawn, asi que los 
+modifique para que sea un metodo a parte y que desde pawn llame a este nuevo metodo definido en piezas, para no tenerlo en pawn.
+- La ultima implementacion que me queda es validar si el rey de ambos jugadores sigue en pie y si no es asi, se le felicita como 
+ganador al que si lo sigue teniendo.
+
 # [1.3.6] - 16 de septiembre de 2024
 # Agregado
 - Ya esta configurado el cli, el juego empieza y termina, hace los cambios de turno, en cada fin de turno le pregunta al jugador si quiere seguir jugando o se rinde. Agregue unas filas y unas columnas por fuera del tablero para indicar/saber las coordenadas de cada pieza.

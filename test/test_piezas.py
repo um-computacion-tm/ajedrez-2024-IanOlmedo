@@ -32,9 +32,6 @@ class TestPiezas(unittest.TestCase):
         for simbolo, piece in self.pieces.items():
             self.assertEqual(str(piece), simbolo)
 
-
-
-
 # Reina, Torre, y Alfil en conjunto
 
     def test_get_moves_bloqueada(self):
