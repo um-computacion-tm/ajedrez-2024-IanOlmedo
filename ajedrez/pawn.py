@@ -39,12 +39,9 @@ class Pawn(Piece):
         return moves
 
 
-    def mover_a_pawn(self, board, from_row, from_col, to_row, to_col):
-        valid_moves = self.get_moves_pawn(board, from_row, from_col)
+    def get_valid_moves(self, board, from_row, from_col, tipo_pieza=None):
+        return self.get_moves_pawn(board, from_row, from_col)
 
-        if (to_row, to_col) in valid_moves:
-            board.set_piece(to_row, to_col, self)
-            board.remove_piece(from_row, from_col)
-            return self
-        else:
-            return None
+    def mover_a_pawn(self, board, from_row, from_col, to_row, to_col):
+        valid_moves = self.get_valid_moves(board, from_row, from_col)
+        return self.ejecutar_movimiento(board, from_row, from_col, to_row, to_col, valid_moves)

@@ -1,6 +1,7 @@
 import unittest
 from ajedrez.chess import Chess
 from ajedrez.king import King
+from unittest.mock import patch
 from ajedrez.exceptions import InvalidMove, InvalidTurn, EmptyPosition
 
 class ChessTest(unittest.TestCase):
@@ -15,24 +16,19 @@ class ChessTest(unittest.TestCase):
         self.assertTrue(self.__chess__.is_playing(), True)
 
     def test_set_turn(self):
-        # Establecer el turno a "BLACK"
         self.__chess__.set_turn("BLACK")
         self.assertEqual(self.__chess__.turn, "BLACK")
 
-        # Establecer el turno a "WHITE"
         self.__chess__.set_turn("WHITE")
         self.assertEqual(self.__chess__.turn, "WHITE")
 
-        # Probar que un turno inválido lanza un ValueError
         with self.assertRaises(ValueError):
             self.__chess__.set_turn("INVALID_TURN")
 
     def test_change_turn(self):
-        # Turno inicial es "WHITE", al cambiar debe ser "BLACK"
         self.__chess__.change_turn()
         self.assertEqual(self.__chess__.turn, "BLACK")
 
-        # Cambiar de "BLACK" de nuevo a "WHITE"
         self.__chess__.change_turn()
         self.assertEqual(self.__chess__.turn, "WHITE")
 
@@ -42,59 +38,43 @@ class ChessTest(unittest.TestCase):
             self.__chess__.move(4, 4, 5, 3)  # No hay ninguna pieza en (4, 4)
 
     def test_move_invalid_turn(self):
-        # Colocar un rey negro en el tablero en (4, 4)
         king = King("BLACK")
         self.__chess__.__board__.set_piece(4, 4, king)
 
-        # Establecer el turno como "WHITE", pero mover una pieza "BLACK"
         self.__chess__.set_turn("WHITE")
         with self.assertRaises(InvalidTurn):
-            self.__chess__.move(4, 4, 5, 3)  # No es el turno del jugador negro
+            self.__chess__.move(4, 4, 5, 3)  
 
     def test_movimiento_valido2(self):
-        # Establecer el turno manualmente a "BLACK"
         self.__chess__.set_turn("BLACK")
-
-        # Colocar el rey negro en la posición (4, 4) usando el tablero de Chess
         king = King("BLACK")
-        # Usa el nombre correcto del atributo del tablero en Chess
         self.__chess__.__board__.set_piece(4, 4, king)
 
-        # Realizar el movimiento válido del rey desde (4, 4) a (5, 3)
         self.__chess__.move(4, 4, 5, 3)
-
-        # Verificar que el rey se haya movido a la nueva posición (5, 3)
         moved_piece = self.__chess__.__board__.get_piece(5, 3)
         self.assertIsInstance(moved_piece, King)
 
-        # Verificar que la posición inicial (4, 4) esté vacía
         empty_position = self.__chess__.__board__.get_piece(4, 4)
         self.assertIsNone(empty_position)
 
-        # Verificar que el turno haya cambiado a "WHITE"
         self.assertEqual(self.__chess__.turn, "WHITE")
 
+"""    def test_end_game(self):
+        # Verificamos que is_playing es True antes de llamar a end_game
+        self.assertTrue(self.chess.is_playing())
+
+        # Usamos mock para verificar el mensaje en la consola
+        with patch('builtins.print') as mocked_print:
+            self.chess.end_game()
+
+            # Verificamos que playing se establece en False
+            self.assertFalse(self.chess.is_playing())
+
+            # Verificamos que el mensaje "El juego ha terminado." se imprime
+            mocked_print.assert_called_once_with("El juego ha terminado.")"""
 
 if __name__ == '__main__':
     unittest.main()
 
 
 
-
-
-"""    def test_move(self):
-        # Suponiendo que (0, 0) es una coordenada válida y contiene una pieza
-        self.chess.move(0, 0, 0, 1)
-        piece = self.chess.__board__.get_piece(0, 1)
-        self.assertIsNotNone(piece)
-        self.assertEqual(self.chess.turn, "BLACK")
-
-    def test_show_board(self):
-        board_str = self.chess.show_board()
-        self.assertIsInstance(board_str, str)
-
-    def test_change_turn(self):
-        self.chess.change_turn()
-        self.assertEqual(self.chess.turn, "BLACK")
-        self.chess.change_turn()
-        self.assertEqual(self.chess.turn, "WHITE")"""

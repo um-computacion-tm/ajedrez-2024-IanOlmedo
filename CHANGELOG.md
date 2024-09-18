@@ -1,3 +1,21 @@
+# [1.3.7] - 18 de septiembre de 2024
+# Agregado
+- Refactorice el metodo que ejecuta los movimientos de cada pieza porque se veia un codigo similar en el del pawn, asi que los 
+modifique para que sea un metodo a parte y que desde pawn llame a este nuevo metodo definido en piezas, para no tenerlo en pawn.
+- La ultima implementacion que me queda es validar si el rey de ambos jugadores sigue en pie y si no es asi, se le felicita como 
+ganador al que si lo sigue teniendo.
+
+# [1.3.6] - 16 de septiembre de 2024
+# Agregado
+- Ya esta configurado el cli, el juego empieza y termina, hace los cambios de turno, en cada fin de turno le pregunta al jugador si quiere seguir jugando o se rinde. Agregue unas filas y unas columnas por fuera del tablero para indicar/saber las coordenadas de cada pieza.
+- El juego yta esta a punto de ser terminado, pero estoy a full con todas las materias, asi que en otro commit, revisare todo y que cumpla con las pautas establecidas. Para su proxima entrega, ya he perdido la cuenta de cuantos push llevo(creo que 26).
+
+# [1.3.5] - 12 de septiembre de 2024
+# Agregado
+- Metodo generico dentro de piezas move_pieces que mueve todas las piezas a excepcion del peon. Y en base a este nuevo metodo, 
+reice el metodo ejeciutar_moves dentro de la clase board + mas la correcion extra de los test.
+- Todo este fue con el fin de reducir los Issues(daniel aclaro que no son muy graves pero son corregibles), y si siguen apareciendo despues de este commit no sabria que hacer.
+
 # [1.3.4] - 11 de septiembre de 2024
 # Agregado
 - ¡Nuevo! metodo en generico en piezas, donde almacena todas las direciones de cada pieza, y las retorna dependiendo de lo que se
