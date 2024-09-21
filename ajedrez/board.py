@@ -37,16 +37,16 @@ class Board:
             self.__positions__[6][i] = Pawn("WHITE")
 
     def __str__(self):
-        board_str = "  0 1 2 3 4 5 6 7\n"  # Etiquetas de columna
+        board_str = "  0 1 2 3 4 5 6 7\n"  # columna inicio
         for i, row in enumerate(self.__positions__):
-            board_str += str(i) + " "  # Etiqueta de fila al inicio
+            board_str += str(i) + " "  # fila final
             for cell in row:
                 if cell is not None:
-                    board_str += str(cell) + " "  # Si hay una pieza, la muestra
+                    board_str += str(cell) + " " 
                 else:
-                    board_str += ". "  # Si no hay una pieza, muestra un punto
-            board_str += str(i) + "\n"  # Etiqueta de fila también al final de la fila
-        board_str += "  0 1 2 3 4 5 6 7\n"  # Etiquetas de columna al final
+                    board_str += ". "  # (donde no hay piexza pongo un punto)
+            board_str += str(i) + "\n"  # fila final
+        board_str += "  0 1 2 3 4 5 6 7\n"  # Columnas final
         return board_str
     
     def get_size(self):

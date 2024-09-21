@@ -1,3 +1,9 @@
+# [1.3.8] - 20 de septiembre de 2024
+# Agregado
+- Agregando nuevo metodo que intenta busca entre las filas y las columnas, a ver si estan los 2 reyes, si al menos uno no esta
+ entoces se termina el juego. Aun no esta terminado, sigo teniendo issues pero se me esta complicando bastante el hecho de 
+eliminarlas. La idea es llegar para el martes que viene para ver que hago.
+
 # [1.3.7] - 18 de septiembre de 2024
 # Agregado
 - Refactorice el metodo que ejecuta los movimientos de cada pieza porque se veia un codigo similar en el del pawn, asi que los 

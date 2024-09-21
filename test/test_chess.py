@@ -5,6 +5,7 @@ from ajedrez.pawn import Pawn
 from unittest.mock import patch
 from ajedrez.exceptions import InvalidMove, InvalidTurn, EmptyPosition
 
+
 class ChessTest(unittest.TestCase):
 
     def setUp(self):
@@ -88,6 +89,41 @@ class ChessTest(unittest.TestCase):
         # Intentar mover desde una posición vacía debería lanzar una excepción
         with self.assertRaises(EmptyPosition):
             self.__chess__.move(4, 4, 5, 4)
+
+
+    def test_both_kings_present(self):
+        """Test que verifica que el juego no termine cuando ambos reyes están en el tablero."""
+        # Colocar ambos reyes en el tablero
+        self.__chess__.__board__.set_piece(0, 4, King("BLACK"))  # Rey negro en la posición inicial
+        self.__chess__.__board__.set_piece(7, 4, King("WHITE"))  # Rey blanco en la posición inicial
+
+        # Llamar a view_king y asegurarse de que no se termina el juego
+        self.__chess__.view_king()
+
+        # Verificar que no se ha llamado a end_game (simulado con un patch o flag)
+        self.assertFalse(hasattr(self.__chess__, 'game_over'))
+
+
+"""    def test_black_king_captured(self):
+        # Colocar ambos reyes en el tablero
+        self.__chess__.__board__.set_piece(0, 4, King("BLACK"))  # Rey negro en su posición inicial
+        self.__chess__.__board__.set_piece(7, 4, King("WHITE"))  # Rey blanco en su posición inicial
+
+        # Simular que una pieza captura al rey negro
+        # Aquí se puede usar cualquier pieza que pueda "capturar" al rey
+        # Por ejemplo, un peón blanco en la posición 0, 4 donde estaba el rey negro
+        self.__chess__.__board__.ejecutar_move(0, 4, Pawn("WHITE"))  # Peón blanco "come" al rey negro
+
+        # Llamar a view_king después de la captura
+        self.__chess__.view_king()
+
+        # Verificar que el ganador es el jugador blanco
+        self.assertTrue(hasattr(self.__chess__, 'winner'))
+        self.assertEqual(self.__chess__.winner, "WHITE")"""
+
+
+
+
 
 
 if __name__ == '__main__':

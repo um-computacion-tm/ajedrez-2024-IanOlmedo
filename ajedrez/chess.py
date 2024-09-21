@@ -26,10 +26,30 @@ class Chess:
         captured_piece = self.__board__.ejecutar_move(from_row, from_col, to_row, to_col)
         
         if captured_piece:
-            if isinstance (captured_piece, King):
-                self.end_game()
-            else:
-                self.change_turn()
+            self.change_turn()
+
+    def view_king(self):
+        white_king_buscar = False
+        black_king_buscar = False
+
+        for row in range(8):
+            for col in range(8):
+                piece = self.__board__.get_piece(row, col)
+                
+                if isinstance(piece, King):
+                    if piece.get_color() == "WHITE":
+                        white_king_buscar = True
+                    elif piece.get_color() == "BLACK":
+                        black_king_buscar = True
+
+                if white_king_buscar and black_king_buscar:
+                    break
+        # si alguno por esas casualidades no esta entoces terminaaa el juego
+        if not white_king_buscar:
+            self.end_game(winner="BLACK")
+        elif not black_king_buscar:
+            self.end_game(winner="WHITE")
+
 
 
     @property
