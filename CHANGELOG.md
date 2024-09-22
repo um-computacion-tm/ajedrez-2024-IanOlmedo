@@ -1,3 +1,8 @@
+# [1.3.9] - 22 de septiembre de 2024
+# Agregado
+- Listo el metodo move de chess, ya esta completo el metodo view_king, se lo llama cada vez que se realiza un movimiento. Tambien corrobore que funcione con los test. Aun asi tuve un problema con el entorno virtual y ya no puedo ver el porcentaje de testeo.
+Queda muuy poco para acabar el juego.
+
 # [1.3.8] - 20 de septiembre de 2024
 # Agregado
 - Agregando nuevo metodo que intenta busca entre las filas y las columnas, a ver si estan los 2 reyes, si al menos uno no esta

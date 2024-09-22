@@ -7,28 +7,32 @@ class Chess:
         self.__board__ = Board()
         self.__turn__ = "WHITE"
         self.playing = True
+        self.winner = None  
 
     def is_playing(self):
         return self.playing
     
     def end_game(self):
         self.playing = False  
-        print(f"El juego ha terminado.")
+        print(f"El juego ha terminado. Ganador: {self.winner}")
 
     def move(self, from_row, from_col, to_row, to_col):
         piece = self.__board__.get_piece(from_row, from_col)
         
         if not piece:
             raise EmptyPosition()
-        if not piece.get_color() == self.__turn__: 
+        if not piece.get_color() == self.__turn__:
             raise InvalidTurn()
         
         captured_piece = self.__board__.ejecutar_move(from_row, from_col, to_row, to_col)
         
-        if captured_piece:
+        
+        self.view_king()
+        
+        if not self.winner:
             self.change_turn()
 
-    def view_king(self):
+    def view_king(self): 
         white_king_buscar = False
         black_king_buscar = False
 
@@ -44,13 +48,14 @@ class Chess:
 
                 if white_king_buscar and black_king_buscar:
                     break
-        # si alguno por esas casualidades no esta entoces terminaaa el juego
+        
+
         if not white_king_buscar:
-            self.end_game(winner="BLACK")
+            self.winner = "BLACK"  
+            self.end_game() 
         elif not black_king_buscar:
-            self.end_game(winner="WHITE")
-
-
+            self.winner = "WHITE" 
+            self.end_game()
 
     @property
     def turn(self):
