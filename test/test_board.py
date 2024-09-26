@@ -108,7 +108,7 @@ class TestBoard(unittest.TestCase):
 
     def test_move_pawn(self):
         # Mover peón blanco de (6, 0) a (4, 0)
-        self.pawn = Pawn("WHITE")
+        self.pawn = Pawn("WHITE","PAWN")
         self.board.set_piece(6, 0, self.pawn)
         moved_piece = self.board.ejecutar_move(6, 0, 4, 0)
         
@@ -118,7 +118,7 @@ class TestBoard(unittest.TestCase):
 
 
     def test_invalid_move(self):
-        self.horse = Horse("WHITE")
+        self.horse = Horse("WHITE", "HORSE")
         self.board.set_piece(7, 1, self.horse)
         
         with self.assertRaises(ValueError):
@@ -126,9 +126,9 @@ class TestBoard(unittest.TestCase):
 
 
     def test_queen_capture_horse(self):
-        queen = Queen("WHITE")
+        queen = Queen("WHITE", "QUEEN")
         self.board.set_piece(4, 4, queen)
-        horse = Horse("BLACK")
+        horse = Horse("BLACK", "HORSE")
         self.board.set_piece(2, 4, horse)
         
         # Mover la reina a la posición del caballo (2, 4) 
@@ -142,9 +142,9 @@ class TestBoard(unittest.TestCase):
         self.assertNotEqual(self.board.get_piece(2, 4), horse) #ya no tiene que estar el caballo
 
     def test_king_capture_queen(self):
-        king = King("WHITE")
+        king = King("WHITE", "KING")
         self.board.set_piece(4, 4, king)
-        queen = Queen("BLACK")
+        queen = Queen("BLACK", "QUEEN")
         self.board.set_piece(3, 4, queen)
         
         moved_piece = self.board.ejecutar_move(4, 4, 3, 4)
@@ -157,9 +157,9 @@ class TestBoard(unittest.TestCase):
         self.assertNotEqual(self.board.get_piece(3, 4), queen) 
 
     def test_bishop_capture_rook(self):
-        bishop = Bishop("BLACK")
+        bishop = Bishop("BLACK", "BISHOP")
         self.board.set_piece(3, 3, bishop)
-        rook = Rook("WHITE")
+        rook = Rook("WHITE", "ROOK")
         self.board.set_piece(4, 4, rook)
         
         moved_piece = self.board.ejecutar_move(3, 3, 4, 4)
@@ -171,9 +171,9 @@ class TestBoard(unittest.TestCase):
         self.assertNotEqual(self.board.get_piece(4, 4), rook)
 
     def test_rook_capture_bishop(self):
-        rook = Rook("BLACK")
+        rook = Rook("BLACK", "ROOK")
         self.board.set_piece(3, 3, rook)
-        bishop = Bishop("WHITE")
+        bishop = Bishop("WHITE", "BISHOP")
         self.board.set_piece(4, 3, bishop)
         
         moved_piece = self.board.ejecutar_move(3, 3, 4, 3)

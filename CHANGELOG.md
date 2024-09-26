@@ -1,3 +1,7 @@
+# [1.4.1] - 26 de septiembre de 2024
+# Agregado
+- Listas las modificaciones de los Issues de cada pieza individual, agregue un nuevo parametro a demas del color, que la el atributo type_piece. Lo unico que quiza que se vea duplicado es el __init__ de cada pieza individual, pero si es asi ya me estaria frustrando un poco bastante. El coverage da de 100%, lo que queda es modificar la cantidad de argumentos de unas funciones dentro de piezas.py
+
 # [1.4.0] - 26 de septiembre de 2024
 # Agregado
 - Refactoreo de view_king en chess(funcional)

@@ -50,7 +50,7 @@ class ChessTest(unittest.TestCase):
 
     def test_movimiento_valido2(self):
         self.__chess__.set_turn("BLACK")
-        king = King("BLACK")
+        king = King("BLACK","KING")
         self.__chess__.__board__.set_piece(4, 4, king)
 
         self.__chess__.move(4, 4, 5, 3)
@@ -63,7 +63,7 @@ class ChessTest(unittest.TestCase):
     def test_move_valid_turn(self):
         # Colocar una pieza y moverla con turno válido
         self.__chess__.set_turn("WHITE")
-        pawn = Pawn("WHITE")
+        pawn = Pawn("WHITE", "PAWN")
         self.__chess__.__board__.set_piece(6, 4, pawn)
 
         self.__chess__.move(6, 4, 5, 4)  # Peón se mueve hacia adelante
@@ -79,7 +79,7 @@ class ChessTest(unittest.TestCase):
     def test_move_invalid_turn(self):
         # Colocar una pieza en el turno incorrecto
         self.__chess__.set_turn("BLACK")
-        pawn = Pawn("WHITE")
+        pawn = Pawn("WHITE", "PAWN")
         self.__chess__.__board__.set_piece(6, 4, pawn)
 
         # Intentar mover en el turno incorrecto debería lanzar una excepción
@@ -89,8 +89,8 @@ class ChessTest(unittest.TestCase):
 
 
     def test_king_capture_white_wins(self):
-        self.__chess__.__board__.set_piece(0, 4, King("BLACK"))
-        self.__chess__.__board__.set_piece(1, 4, Rook("WHITE"))
+        self.__chess__.__board__.set_piece(0, 4, King("BLACK", "KING"))
+        self.__chess__.__board__.set_piece(1, 4, Rook("WHITE", "ROOK"))
 
         self.__chess__.move(1, 4, 0, 4)
 
@@ -98,8 +98,8 @@ class ChessTest(unittest.TestCase):
         self.assertEqual(self.__chess__.winner, "WHITE")
 
     def test_king_capture_black_wins(self):
-        self.__chess__.__board__.set_piece(7, 4, King("WHITE"))
-        self.__chess__.__board__.set_piece(6, 4, Rook("BLACK"))
+        self.__chess__.__board__.set_piece(7, 4, King("WHITE", "KING"))
+        self.__chess__.__board__.set_piece(6, 4, Rook("BLACK", "ROOK"))
 
         # Cambiar el turno a BLACK
         self.__chess__.set_turn("BLACK")
@@ -111,7 +111,7 @@ class ChessTest(unittest.TestCase):
 
     def test_turn_changes(self):
 
-        self.__chess__.__board__.set_piece(7, 0, Rook("WHITE"))
+        self.__chess__.__board__.set_piece(7, 0, Rook("WHITE", "ROOK"))
         self.__chess__.__board__.set_piece(6, 0, None)
 
         self.__chess__.move(7, 0, 6, 0)
@@ -119,7 +119,7 @@ class ChessTest(unittest.TestCase):
         self.assertEqual(self.__chess__.turn, "BLACK")
 
     def test_invalid_turn(self):
-        self.__chess__.__board__.set_piece(0, 0, Rook("BLACK"))
+        self.__chess__.__board__.set_piece(0, 0, Rook("BLACK", "ROOK"))
 
         with self.assertRaises(InvalidTurn):
             self.__chess__.move(0, 0, 1, 0)
@@ -130,8 +130,8 @@ class ChessTest(unittest.TestCase):
 
     def test_ambos_kings_estan(self):
 
-        self.__chess__.__board__.set_piece(7, 4, King("WHITE"))
-        self.__chess__.__board__.set_piece(0, 4, King("BLACK"))
+        self.__chess__.__board__.set_piece(7, 4, King("WHITE", "KING"))
+        self.__chess__.__board__.set_piece(0, 4, King("BLACK", "KING"))
 
         self.__chess__.view_king()
         self.assertTrue(self.__chess__.is_playing())

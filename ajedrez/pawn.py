@@ -4,6 +4,9 @@ class Pawn(Piece):
     white_str = "♙"
     black_str = "♟"
 
+    def __init__(self, color, piece_type):
+        super().__init__(color, piece_type)
+
     def get_moves_pawn(self, board, from_row, from_col):
         moves = []
         direction = -1 if self.get_color() == "WHITE" else 1

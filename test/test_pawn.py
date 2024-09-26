@@ -5,7 +5,7 @@ from ajedrez.board import Board
 class TestPawn(unittest.TestCase):
     def setUp(self):
         self.__board__ = Board()
-        self.__pawn__ = Pawn("WHITE")
+        self.__pawn__ = Pawn("WHITE", "PAWN")
 
 
     def test_get_moves_pawn(self):
@@ -23,7 +23,7 @@ class TestPawn(unittest.TestCase):
 
     def test_frente_a_otro(self):
         self.__board__.set_piece(3,3, self.__pawn__)
-        self.__board__.set_piece(2,3, Pawn("BLACK"))
+        self.__board__.set_piece(2,3, Pawn("BLACK", "PAWN"))
         pawn = self.__board__.get_piece(3,3)
 
         self.assertEqual(pawn.get_moves_pawn(self.__board__, 3, 3), [])
@@ -44,3 +44,7 @@ class TestPawn(unittest.TestCase):
         movimiento = self.__pawn__.mover_a_pawn(self.__board__, 6, 4, 7, 4)
 
         self.assertIsNone (movimiento)
+
+
+if __name__ == '__main__':
+    unittest.main()
