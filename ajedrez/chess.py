@@ -32,30 +32,17 @@ class Chess:
         if not self.winner:
             self.change_turn()
 
-    def view_king(self): 
-        white_king_buscar = False
-        black_king_buscar = False
+    def view_king(self):
+        white_king_found = any(isinstance(self.__board__.get_piece(row, col), King) and self.__board__.get_piece(row, col).get_color() == "WHITE" for row in range(8) for col in range(8))
+        black_king_found = any(isinstance(self.__board__.get_piece(row, col), King) and self.__board__.get_piece(row, col).get_color() == "BLACK" for row in range(8) for col in range(8))
 
-        for row in range(8):
-            for col in range(8):
-                piece = self.__board__.get_piece(row, col)
-                
-                if isinstance(piece, King):
-                    if piece.get_color() == "WHITE":
-                        white_king_buscar = True
-                    elif piece.get_color() == "BLACK":
-                        black_king_buscar = True
-
-                if white_king_buscar and black_king_buscar:
-                    break
-        
-
-        if not white_king_buscar:
-            self.winner = "BLACK"  
-            self.end_game() 
-        elif not black_king_buscar:
-            self.winner = "WHITE" 
+        if not white_king_found:
+            self.winner = "BLACK"
             self.end_game()
+        elif not black_king_found:
+            self.winner = "WHITE"
+            self.end_game()
+
 
     @property
     def turn(self):

@@ -1,3 +1,7 @@
+# [1.4.0] - 26 de septiembre de 2024
+# Agregado
+- Refactoreo de view_king en chess(funcional)
+
 # [1.3.9] - 22 de septiembre de 2024
 # Agregado
 - Listo el metodo move de chess, ya esta completo el metodo view_king, se lo llama cada vez que se realiza un movimiento. Tambien corrobore que funcione con los test. Aun asi tuve un problema con el entorno virtual y ya no puedo ver el porcentaje de testeo.
