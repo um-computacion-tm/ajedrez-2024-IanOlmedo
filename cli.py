@@ -8,7 +8,7 @@ def main():
     print("¡Vamos a jugar al ajedrez!")
     print("")
     chess = Chess()
-    while chess.is_playing():  # El juego sigue mientras is_playing() sea True
+    while chess.is_playing():  
         play(chess)
 
 def play(chess):
@@ -22,7 +22,7 @@ def play(chess):
         
         chess.move(from_row, from_col, to_row, to_col)
         
-        # Preguntar si el jugador desea rendirse después de hacer el movimiento
+
         rendirse(chess)
         
     except InvalidMove as e:

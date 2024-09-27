@@ -4,6 +4,9 @@ class Pawn(Piece):
     white_str = "♙"
     black_str = "♟"
 
+    def __init__(self, color, piece_type):
+        super().__init__(color, piece_type)
+
     def get_moves_pawn(self, board, from_row, from_col):
         moves = []
         direction = -1 if self.get_color() == "WHITE" else 1
@@ -43,5 +46,4 @@ class Pawn(Piece):
         return self.get_moves_pawn(board, from_row, from_col)
 
     def mover_a_pawn(self, board, from_row, from_col, to_row, to_col):
-        valid_moves = self.get_valid_moves(board, from_row, from_col)
-        return self.ejecutar_movimiento(board, from_row, from_col, to_row, to_col, valid_moves)
+        return self.ejecutar_movimiento(board, from_row, from_col, to_row, to_col)

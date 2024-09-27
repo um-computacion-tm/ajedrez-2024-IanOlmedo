@@ -1,18 +1,20 @@
 from ajedrez.board import Board
 from ajedrez.exceptions import InvalidMove, InvalidTurn, EmptyPosition
+from ajedrez.king import King  
 
 class Chess:
     def __init__(self):
         self.__board__ = Board()
         self.__turn__ = "WHITE"
-        self.playing = True 
+        self.playing = True
+        self.winner = None  
 
     def is_playing(self):
-        return self.playing 
+        return self.playing
     
     def end_game(self):
         self.playing = False  
-        print("El juego ha terminado.")
+        print(f"El juego ha terminado. Ganador: {self.winner}")
 
     def move(self, from_row, from_col, to_row, to_col):
         piece = self.__board__.get_piece(from_row, from_col)
@@ -22,10 +24,25 @@ class Chess:
         if not piece.get_color() == self.__turn__:
             raise InvalidTurn()
         
-        moved_piece = self.__board__.ejecutar_move(from_row, from_col, to_row, to_col)
+        captured_piece = self.__board__.ejecutar_move(from_row, from_col, to_row, to_col)
         
-        if moved_piece:
+        
+        self.view_king()
+        
+        if not self.winner:
             self.change_turn()
+
+    def view_king(self):
+        white_king_found = any(isinstance(self.__board__.get_piece(row, col), King) and self.__board__.get_piece(row, col).get_color() == "WHITE" for row in range(8) for col in range(8))
+        black_king_found = any(isinstance(self.__board__.get_piece(row, col), King) and self.__board__.get_piece(row, col).get_color() == "BLACK" for row in range(8) for col in range(8))
+
+        if not white_king_found:
+            self.winner = "BLACK"
+            self.end_game()
+        elif not black_king_found:
+            self.winner = "WHITE"
+            self.end_game()
+
 
     @property
     def turn(self):
