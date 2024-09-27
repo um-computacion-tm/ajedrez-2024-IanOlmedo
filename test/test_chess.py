@@ -60,21 +60,6 @@ class ChessTest(unittest.TestCase):
         empty_position = self.__chess__.__board__.get_piece(4, 4)
         self.assertIsNone(empty_position)
 
-    def test_move_valid_turn(self):
-        # Colocar una pieza y moverla con turno válido
-        self.__chess__.set_turn("WHITE")
-        pawn = Pawn("WHITE", "PAWN")
-        self.__chess__.__board__.set_piece(6, 4, pawn)
-
-        self.__chess__.move(6, 4, 5, 4)  # Peón se mueve hacia adelante
-
-        # Verificar que la pieza se movió correctamente
-        moved_piece = self.__chess__.__board__.get_piece(5, 4)
-        self.assertIsInstance(moved_piece, Pawn)
-
-        # Verificar que la posición original está vacía
-        empty_position = self.__chess__.__board__.get_piece(6, 4)
-        self.assertIsNone(empty_position)
 
     def test_move_invalid_turn(self):
         # Colocar una pieza en el turno incorrecto

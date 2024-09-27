@@ -75,7 +75,7 @@ class Board:
         if isinstance(piece, Pawn):  ##--->porque el peon tiene metodos especificos
             moved_piece = piece.mover_a_pawn(self, from_row, from_col, to_row, to_col)
         else:
-            moved_piece = piece.move_piece(self, from_row, from_col, to_row, to_col, tipo_pieza)
+            moved_piece = piece.move_piece(self, from_row, from_col, to_row, to_col)
 
         if moved_piece is None:
             raise ValueError(f"Movimiento no válido para la pieza {tipo_pieza}")

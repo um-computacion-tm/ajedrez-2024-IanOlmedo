@@ -149,7 +149,7 @@ class TestPiezas(unittest.TestCase):
         # Test moving a Rook
         self.__board__.set_piece(2, 3, Rook("WHITE", "ROOK"))
         self.__board__.set_piece(2, 4, Rook("BLACK", "ROOK"))
-        self.__board__.get_piece(2, 3).mover_a(self.__board__, 2, 3, 2, 4)
+        self.__board__.get_piece(2, 3).ejecutar_movimiento(self.__board__, 2, 3, 2, 4)
         self.assertIsNone(self.__board__.get_piece(2, 3))
         self.assertEqual(self.__board__.get_piece(2, 4).__class__.__name__, "Rook")
         self.assertEqual(self.__board__.get_piece(2, 4).get_color(), "WHITE")
@@ -157,7 +157,7 @@ class TestPiezas(unittest.TestCase):
         # Test moving a Queen
         self.__board__.set_piece(3, 3, Queen("WHITE", "QUEEN"))
         self.__board__.set_piece(3, 4, Queen("BLACK","QUEEN"))
-        self.__board__.get_piece(3, 3).mover_a(self.__board__, 3, 3, 3, 4)
+        self.__board__.get_piece(3, 3).ejecutar_movimiento(self.__board__, 3, 3, 3, 4)
         self.assertIsNone(self.__board__.get_piece(3, 3))
         self.assertEqual(self.__board__.get_piece(3, 4).__class__.__name__, "Queen")
         self.assertEqual(self.__board__.get_piece(3, 4).get_color(), "WHITE")

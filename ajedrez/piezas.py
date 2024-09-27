@@ -27,24 +27,15 @@ class Piece:
         else:
             return self.get_moves_kh(board, from_row, from_col, directions)
 
-    def mover_a(self, board, from_row, from_col, to_row, to_col):
-        valid_moves = self.get_valid_moves(board, from_row, from_col)
-        if (to_row, to_col) in valid_moves:
-            board.set_piece(to_row, to_col, self)
-            board.remove_piece(from_row, from_col)
-            return self
-        else:
-            return None
-
 
     
     ##Priemero ---> recibe el parametro tipo_pieza desde board
-    def move_piece(self, board, from_row, from_col, to_row, to_col, tipo_pieza):
-        valid_moves = self.get_valid_moves(board, from_row, from_col)
-        return self.ejecutar_movimiento(board, from_row, from_col, to_row, to_col, valid_moves)
+    def move_piece(self, board, from_row, from_col, to_row, to_col):
+        return self.ejecutar_movimiento(board, from_row, from_col, to_row, to_col)
         
         #Tercero
-    def ejecutar_movimiento(self, board, from_row, from_col, to_row, to_col, valid_moves):
+    def ejecutar_movimiento(self, board, from_row, from_col, to_row, to_col, ):
+        valid_moves = self.get_valid_moves(board, from_row, from_col)
         if (to_row, to_col) in valid_moves:
             board.set_piece(to_row, to_col, self)
             board.remove_piece(from_row, from_col)

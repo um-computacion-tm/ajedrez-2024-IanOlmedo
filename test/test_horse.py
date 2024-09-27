@@ -14,7 +14,7 @@ class TestHorse(unittest.TestCase):
         self.__board__.set_piece(3,5, self.__horse__)
         reina_negra = Queen("BLACK", "QUEEN")
         self.__board__.set_piece(1,4, reina_negra)
-        self.__horse__.mover_a(self.__board__, 3, 5, 1, 4)
+        self.__horse__.ejecutar_movimiento(self.__board__, 3, 5, 1, 4)
         self.assertEqual(self.__board__.get_piece(1,4), self.__horse__)
         self.assertIsNone(self.__board__.get_piece(3,5))
 

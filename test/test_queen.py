@@ -11,7 +11,7 @@ class TestQueen(unittest.TestCase):
 
     def test_movimiento_queen_invalido(self):
         self.__board__.set_piece(6, 4, self.__queen__)
-        movimiento = self.__queen__.mover_a(self.__board__, 6, 4, 7, 4)
+        movimiento = self.__queen__.ejecutar_movimiento(self.__board__, 6, 4, 7, 4)
 
         self.assertIsNone (movimiento)
 
@@ -19,7 +19,7 @@ class TestQueen(unittest.TestCase):
         self.__board__.set_piece(4, 4, self.__queen__)
         reina_negra = Queen("BLACK", "QUEEN")
         self.__board__.set_piece(1, 4, reina_negra)
-        self.__queen__.mover_a(self.__board__, 4, 4, 1, 4)
+        self.__queen__.ejecutar_movimiento(self.__board__, 4, 4, 1, 4)
         self.assertEqual(self.__board__.get_piece(1,4), self.__queen__)
         self.assertIsNone(self.__board__.get_piece(4,4))
 
