@@ -42,7 +42,7 @@ class Pawn(Piece):
         return moves
 
 
-    def get_valid_moves(self, board, from_row, from_col, tipo_pieza=None):
+    def get_valid_moves(self, board, from_row, from_col):
         return self.get_moves_pawn(board, from_row, from_col)
 
     def mover_a_pawn(self, board, from_row, from_col, to_row, to_col):
