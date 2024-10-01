@@ -13,7 +13,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5349b66ff7e7f31f9aed/test_coverage)](https://codeclimate.com/github/um-computacion-tm/ajedrez-2024-IanOlmedo/test_coverage)
 
 
-"""
+
 # Juego de Ajedrez Educativo
 
 Este proyecto es un juego de ajedrez educativo implementado en Python. El juego incluye una interfaz de línea de comandos (CLI) que te permite jugar al juego ingresando comandos en la consola.
@@ -40,4 +40,4 @@ terminara cuando uno de los 2 jugadores se rinda o alguno de los jugadores pieda
 Comandos:
 1. `docker buildx build -t ajedrez .`
 2. `docker run -i ajedrez`
-"""
+
