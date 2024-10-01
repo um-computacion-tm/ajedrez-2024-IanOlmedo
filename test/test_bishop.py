@@ -10,7 +10,6 @@ class TestBishop(unittest.TestCase):
 
 
     def test_bishop_move_and_capture(self):
-        # Test de movimientos posibles y captura con el alfil en el tablero
         self.__board__.set_piece(4, 6, self.__bishop__)
         pawn = Pawn("BLACK", "PAWN")
         self.__board__.set_piece(5, 5, pawn)
